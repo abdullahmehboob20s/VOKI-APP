@@ -1,0 +1,43 @@
+.SideBarLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  background-color: transparent;
+  text-decoration: none;
+  color: white;
+  /* border: 2px solid blue; */
+  margin-bottom: 10px;
+}
+
+.SideBarLinkActive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  background-color: white;
+  text-decoration: none;
+  color: #161c2f;
+}
+
+.SideBarLinkWrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 70%;
+}
+
+.SidebarLinkIcon {
+  font-size: 27px;
+  /* margin-right: 20px; */
+  width: 80px;
+  /* border: 2px solid red; */
+  /* color: #161c2f; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.SidebarLinkLabel {
+  font-weight: 600;
+  font-size: 22px;
+  /* color: #161c2f; */
+}

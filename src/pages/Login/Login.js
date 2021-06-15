@@ -1,15 +1,15 @@
 import React from "react";
 
 // logo
-import logo from "../assets/images/logo.svg";
+import logo from "../../assets/images/logo.svg";
 
 // react-router-dom
 import { Link, useHistory } from "react-router-dom";
 
 // components
-import FormControlInput from "../components/Input/FormControlInput";
-import FormButton from "../components/Button/FormButton";
-import Footer from "../layouts/Footer/Footer";
+import FormControlInput from "../../components/Input/FormControlInput";
+import FormButton from "../../components/Button/FormButton";
+import Footer from "../../layouts/Footer/Footer";
 
 // styled-components
 import styled from "styled-components";
@@ -50,31 +50,35 @@ function Login() {
   };
 
   let formSubmit = () => {
-    if (!data.email || !data.password) {
-      seterrorMsg({
-        password: {
-          status: !data.password ? true : false,
-          msg: !data.password ? "Password Cannot Be Empty" : "",
-        },
-        email: {
-          status: !data.email ? true : false,
-          msg: !data.email ? "Email Cannot Be Empty" : "",
-        },
-      });
-      return;
-    }
+    // HAVE TO UNCOMMENT LATER ======================================
 
-    seterrorMsg({
-      email: { status: false, msg: "" },
-      password: { status: false, msg: "" },
-    });
+    // if (!data.email || !data.password) {
+    //   seterrorMsg({
+    //     password: {
+    //       status: !data.password ? true : false,
+    //       msg: !data.password ? "Password Cannot Be Empty" : "",
+    //     },
+    //     email: {
+    //       status: !data.email ? true : false,
+    //       msg: !data.email ? "Email Cannot Be Empty" : "",
+    //     },
+    //   });
+    //   return;
+    // }
 
-    console.log(data);
+    // seterrorMsg({
+    //   email: { status: false, msg: "" },
+    //   password: { status: false, msg: "" },
+    // });
 
-    setData({
-      email: "",
-      password: "",
-    });
+    // console.log(data);
+
+    // setData({
+    //   email: "",
+    //   password: "",
+    // });
+
+    history.push("/Agents");
   };
 
   return (

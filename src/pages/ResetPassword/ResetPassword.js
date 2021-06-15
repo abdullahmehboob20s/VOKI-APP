@@ -1,15 +1,15 @@
 import React from "react";
 
 // logo
-import logo from "../assets/images/logo.svg";
+import logo from "../../assets/images/logo.svg";
 
 // react-router-dom
 import { Link, useHistory } from "react-router-dom";
 
 // components
-import FormControlInput from "../components/Input/FormControlInput";
-import FormButton from "../components/Button/FormButton";
-import Footer from "../layouts/Footer/Footer";
+import FormControlInput from "../../components/Input/FormControlInput";
+import FormButton from "../../components/Button/FormButton";
+import Footer from "../../layouts/Footer/Footer";
 
 // styled-components
 import styled from "styled-components";
