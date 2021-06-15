@@ -16,6 +16,10 @@ export default Agents;
 let Container = styled.div`
   height: 100vh;
   padding: 100px;
+  background-color: #f3f8fa;
+`;
+let ContainerWrapper = styled.div``;
+let AgentTitle = styled.p`
   font-style: normal;
   font-weight: bold;
   font-size: 48px;

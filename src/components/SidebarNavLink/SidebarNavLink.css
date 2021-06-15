@@ -11,12 +11,7 @@
 }
 
 .SideBarLinkActive {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 64px;
-  background-color: white;
-  text-decoration: none;
+  background-color: #f3f8fa;
   color: #161c2f;
 }
 

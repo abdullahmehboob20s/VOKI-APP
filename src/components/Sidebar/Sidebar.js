@@ -16,7 +16,7 @@ import { VscCallIncoming } from "react-icons/vsc";
 function Sidebar() {
   return (
     <SidebarContainer>
-      <LogoSidebar>
+      <LogoSidebar as={Link} to="/">
         <img src={logoSidebar} alt="" />
       </LogoSidebar>
 
@@ -74,7 +74,7 @@ let SidebarContainer = styled.div`
   overflow-y: scroll;
   padding-bottom: 50px;
 `;
-let LogoSidebar = styled.div`
+let LogoSidebar = styled.a`
   width: 100%;
   /* height: 220px; */
   padding: 100px;
