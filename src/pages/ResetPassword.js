@@ -1,0 +1,204 @@
+import React from "react";
+
+// logo
+import logo from "../assets/images/logo.svg";
+
+// react-router-dom
+import { Link, useHistory } from "react-router-dom";
+
+// components
+import FormControlInput from "../components/Input/FormControlInput";
+import FormButton from "../components/Button/FormButton";
+import Footer from "../layouts/Footer/Footer";
+
+// styled-components
+import styled from "styled-components";
+
+function Login() {
+  let history = useHistory();
+  let [data, setData] = React.useState({
+    newPassword: "",
+    retypePassword: "",
+  });
+  let [errorMsg, seterrorMsg] = React.useState({
+    newPassword: { status: false, msg: "" },
+    retypePassword: { status: false, msg: "" },
+  });
+
+  return (
+    <MainContainer>
+      {/* Logo */}
+      <Logo as={Link} to="/">
+        <img src={logo} alt="" />
+      </Logo>
+      <Container>
+        {/* FormContainerWrapper */}
+        <FormContainerWrapper>
+          {/* Titles */}
+          <ContainerFormTitle>Reset your Password</ContainerFormTitle>
+          <ContainerFormLabel>
+            Please enter your new password
+          </ContainerFormLabel>
+
+          {/* FormContainer */}
+          <FormContainer>
+            <FormControlWrapper>
+              {/* FormControlInput */}
+              <FormControlInput
+                value={data.newPassword}
+                error={errorMsg.newPassword.status}
+                errorMsg={errorMsg.newPassword.msg}
+                label="New Password"
+                type="password"
+                marginBottom="16px"
+                width="100%"
+                forhtml="New-Password"
+                onchange={(e) => {
+                  setData({
+                    ...data,
+                    newPassword: e.target.value,
+                  });
+                }}
+              />
+              <FormControlInput
+                value={data.retypePassword}
+                error={errorMsg.retypePassword.status}
+                errorMsg={errorMsg.retypePassword.msg}
+                label="Retype Password"
+                forhtml="Retype-Password"
+                type="password"
+                marginBottom="0px"
+                width="100%"
+                onchange={(e) => {
+                  setData({
+                    ...data,
+                    retypePassword: e.target.value,
+                  });
+                }}
+              />
+            </FormControlWrapper>
+
+            <FormButton
+              title="Reset Password"
+              onPress={() => {
+                if (!data.newPassword || !data.retypePassword) {
+                  seterrorMsg({
+                    retypePassword: {
+                      status: !data.retypePassword ? true : false,
+                      msg: !data.retypePassword ? "Input Cannot Be Empty" : "",
+                    },
+                    newPassword: {
+                      status: !data.newPassword ? true : false,
+                      msg: !data.newPassword ? "Input Cannot Be Empty" : "",
+                    },
+                  });
+                  return;
+                }
+
+                if (data.newPassword != data.retypePassword) {
+                  seterrorMsg({
+                    retypePassword: {
+                      status: true,
+                      msg: "Passwords Are Not Matching",
+                    },
+                    newPassword: {
+                      status: true,
+                      msg: "Passwords Are Not Matching",
+                    },
+                  });
+                  return;
+                }
+
+                seterrorMsg({
+                  newPassword: { status: false, msg: "" },
+                  retypePassword: { status: false, msg: "" },
+                });
+
+                setData({
+                  newPassword: "",
+                  retypePassword: "",
+                });
+              }}
+            />
+          </FormContainer>
+        </FormContainerWrapper>
+      </Container>
+      {/* Footer */}
+      <Footer />
+    </MainContainer>
+  );
+}
+
+export default Login;
+
+let MainContainer = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #f3f8fa;
+  padding: 30px 0;
+
+  @media (max-width: 500px) {
+    min-height: 700px;
+    /* border: 2px solid red; */
+  }
+`;
+let Logo = styled.a`
+  display: block;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  img {
+    width: 194.39px;
+    height: 78px;
+  }
+
+  @media (max-width: 880px) {
+    img {
+      width: 150px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 134.39px;
+    }
+  }
+`;
+let Container = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+let FormContainer = styled.form`
+  margin-top: 24px;
+`;
+let FormContainerWrapper = styled.form`
+  width: 90%;
+  max-width: 342px;
+`;
+let ContainerFormLabel = styled.p`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #575454;
+  margin-bottom: 24px;
+`;
+let ContainerFormTitle = styled.p`
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 37px;
+  color: #161c2f;
+  margin-bottom: 8px;
+`;
+let FormControlWrapper = styled.div``;
