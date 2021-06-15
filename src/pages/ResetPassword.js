@@ -25,6 +25,53 @@ function Login() {
     retypePassword: { status: false, msg: "" },
   });
 
+  let inputValue = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  let formSubmit = () => {
+    if (!data.newPassword || !data.retypePassword) {
+      seterrorMsg({
+        retypePassword: {
+          status: !data.retypePassword ? true : false,
+          msg: !data.retypePassword ? "Input Cannot Be Empty" : "",
+        },
+        newPassword: {
+          status: !data.newPassword ? true : false,
+          msg: !data.newPassword ? "Input Cannot Be Empty" : "",
+        },
+      });
+      return;
+    }
+
+    if (data.newPassword != data.retypePassword) {
+      seterrorMsg({
+        retypePassword: {
+          status: true,
+          msg: "Passwords Are Not Matching",
+        },
+        newPassword: {
+          status: true,
+          msg: "Passwords Are Not Matching",
+        },
+      });
+      return;
+    }
+
+    seterrorMsg({
+      newPassword: { status: false, msg: "" },
+      retypePassword: { status: false, msg: "" },
+    });
+
+    setData({
+      newPassword: "",
+      retypePassword: "",
+    });
+  };
+
   return (
     <MainContainer>
       {/* Logo */}
@@ -53,12 +100,8 @@ function Login() {
                 marginBottom="16px"
                 width="100%"
                 forhtml="New-Password"
-                onchange={(e) => {
-                  setData({
-                    ...data,
-                    newPassword: e.target.value,
-                  });
-                }}
+                name="newPassword"
+                onchange={inputValue}
               />
               <FormControlInput
                 value={data.retypePassword}
@@ -69,57 +112,12 @@ function Login() {
                 type="password"
                 marginBottom="0px"
                 width="100%"
-                onchange={(e) => {
-                  setData({
-                    ...data,
-                    retypePassword: e.target.value,
-                  });
-                }}
+                name="retypePassword"
+                onchange={inputValue}
               />
             </FormControlWrapper>
 
-            <FormButton
-              title="Reset Password"
-              onPress={() => {
-                if (!data.newPassword || !data.retypePassword) {
-                  seterrorMsg({
-                    retypePassword: {
-                      status: !data.retypePassword ? true : false,
-                      msg: !data.retypePassword ? "Input Cannot Be Empty" : "",
-                    },
-                    newPassword: {
-                      status: !data.newPassword ? true : false,
-                      msg: !data.newPassword ? "Input Cannot Be Empty" : "",
-                    },
-                  });
-                  return;
-                }
-
-                if (data.newPassword != data.retypePassword) {
-                  seterrorMsg({
-                    retypePassword: {
-                      status: true,
-                      msg: "Passwords Are Not Matching",
-                    },
-                    newPassword: {
-                      status: true,
-                      msg: "Passwords Are Not Matching",
-                    },
-                  });
-                  return;
-                }
-
-                seterrorMsg({
-                  newPassword: { status: false, msg: "" },
-                  retypePassword: { status: false, msg: "" },
-                });
-
-                setData({
-                  newPassword: "",
-                  retypePassword: "",
-                });
-              }}
-            />
+            <FormButton title="Reset Password" onPress={formSubmit} />
           </FormContainer>
         </FormContainerWrapper>
       </Container>

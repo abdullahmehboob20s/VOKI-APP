@@ -1,16 +1,12 @@
 import React from "react";
-
 // logo
 import logo from "../assets/images/logo.svg";
-
 // react-router-dom
 import { Link, useHistory } from "react-router-dom";
-
 // components
 import FormControlInput from "../components/Input/FormControlInput";
 import FormButton from "../components/Button/FormButton";
 import Footer from "../layouts/Footer/Footer";
-
 // styled-components
 import styled from "styled-components";
 
@@ -23,6 +19,35 @@ function Login() {
   let [errorMsg, seterrorMsg] = React.useState({
     email: { status: false, msg: "" },
   });
+
+  let inputValue = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  let formSubmit = () => {
+    if (!data.email) {
+      seterrorMsg({
+        email: {
+          status: !data.email ? true : false,
+          msg: !data.email ? "Email Cannot Be Empty" : "",
+        },
+      });
+      return;
+    }
+
+    seterrorMsg({
+      email: { status: false, msg: "" },
+    });
+
+    setData({
+      email: "",
+    });
+
+    history.push("/resetpassword");
+  };
 
   return (
     <MainContainer>
@@ -53,39 +78,12 @@ function Login() {
                 width="100%"
                 marginBottom="0px"
                 forhtml="Email-Address"
-                onchange={(e) => {
-                  setData({
-                    ...data,
-                    email: e.target.value,
-                  });
-                }}
+                name="email"
+                onchange={inputValue}
               />
             </FormControlWrapper>
 
-            <FormButton
-              title="Reset Password"
-              onPress={() => {
-                if (!data.email) {
-                  seterrorMsg({
-                    email: {
-                      status: !data.email ? true : false,
-                      msg: !data.email ? "Email Cannot Be Empty" : "",
-                    },
-                  });
-                  return;
-                }
-
-                seterrorMsg({
-                  email: { status: false, msg: "" },
-                });
-
-                setData({
-                  email: "",
-                });
-
-                history.push("/resetpassword");
-              }}
-            />
+            <FormButton title="Reset Password" onPress={formSubmit} />
           </FormContainer>
         </FormContainerWrapper>
       </Container>

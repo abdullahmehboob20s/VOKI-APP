@@ -42,6 +42,41 @@ function Login() {
     password: { status: false, msg: "" },
   });
 
+  let inputValue = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  let formSubmit = () => {
+    if (!data.email || !data.password) {
+      seterrorMsg({
+        password: {
+          status: !data.password ? true : false,
+          msg: !data.password ? "Password Cannot Be Empty" : "",
+        },
+        email: {
+          status: !data.email ? true : false,
+          msg: !data.email ? "Email Cannot Be Empty" : "",
+        },
+      });
+      return;
+    }
+
+    seterrorMsg({
+      email: { status: false, msg: "" },
+      password: { status: false, msg: "" },
+    });
+
+    console.log(data);
+
+    setData({
+      email: "",
+      password: "",
+    });
+  };
+
   return (
     <MainContainer>
       {/* Logo */}
@@ -68,12 +103,8 @@ function Login() {
                 marginBottom="16px"
                 width="100%"
                 forhtml="Email/Username"
-                onchange={(e) => {
-                  setData({
-                    ...data,
-                    email: e.target.value,
-                  });
-                }}
+                name="email"
+                onchange={(e) => inputValue(e)}
               />
               <FormControlInput
                 value={data.password}
@@ -85,12 +116,8 @@ function Login() {
                 width="100%"
                 forhtml="Password"
                 type="password"
-                onchange={(e) => {
-                  setData({
-                    ...data,
-                    password: e.target.value,
-                  });
-                }}
+                name="password"
+                onchange={(e) => inputValue(e)}
               />
             </FormControlWrapper>
             <ForgetPasswordWrapper>
@@ -106,35 +133,7 @@ function Login() {
                 Forgot password?
               </ForgetPasswordLink>
             </ForgetPasswordWrapper>
-            <FormButton
-              type="submit"
-              title="LOG IN"
-              onPress={() => {
-                if (!data.email || !data.password) {
-                  seterrorMsg({
-                    password: {
-                      status: !data.password ? true : false,
-                      msg: !data.password ? "Password Cannot Be Empty" : "",
-                    },
-                    email: {
-                      status: !data.email ? true : false,
-                      msg: !data.email ? "Email Cannot Be Empty" : "",
-                    },
-                  });
-                  return;
-                }
-
-                seterrorMsg({
-                  email: { status: false, msg: "" },
-                  password: { status: false, msg: "" },
-                });
-
-                setData({
-                  email: "",
-                  password: "",
-                });
-              }}
-            />
+            <FormButton type="submit" title="LOG IN" onPress={formSubmit} />
           </FormContainer>
         </FormContainerWrapper>
       </Container>

@@ -33,6 +33,7 @@ function FormControlInput(props) {
     errorMsg = "error message",
     onchange,
     value,
+    name,
   } = props;
 
   return (
@@ -44,6 +45,7 @@ function FormControlInput(props) {
         {label}
       </FormLabel>
       <InputBase
+        name={name}
         value={value}
         id={forhtml}
         className={classes.textField}
