@@ -4,10 +4,11 @@ import { InputBase, FormControl, FormLabel } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import red from "@material-ui/core/colors/red";
+import defaultTheme from "theme/defaultTheme";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
-    border: "1px solid #161C2F",
+    border: `1px solid ${defaultTheme.palette.textDarkColor}`,
     borderRadius: "4px",
     padding: theme.spacing(2),
     height: "48px",
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 500,
     fontSize: "16px",
     lineHeight: "20px",
-    color: "#161C2F",
+    color: `${defaultTheme.palette.textDarkColor}`,
     marginBottom: "8px",
   },
 }));

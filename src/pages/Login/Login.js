@@ -18,6 +18,97 @@ import styled from "styled-components";
 import { Checkbox } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
+import defaultTheme from "theme/defaultTheme";
+
+// Styling
+
+let MainContainer = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: ${defaultTheme.palette.bgLightColor};
+  padding: 30px 0;
+
+  @media (max-width: 500px) {
+    min-height: 700px;
+    /* border: 2px solid red; */
+  }
+`;
+let Logo = styled.a`
+  display: block;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  img {
+    width: 194.39px;
+    height: 78px;
+  }
+
+  @media (max-width: 880px) {
+    img {
+      width: 150px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 134.39px;
+    }
+  }
+`;
+let Container = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+let FormContainer = styled.form`
+  margin-top: 24px;
+`;
+let FormContainerWrapper = styled.form`
+  width: 90%;
+  max-width: 342px;
+`;
+let ContainerFormLabel = styled.p`
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: ${defaultTheme.palette.textDarkColor};
+  margin-bottom: 8px;
+`;
+let ContainerFormTitle = styled.p`
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 37px;
+  color: ${defaultTheme.palette.textDarkColor};
+`;
+let FormControlWrapper = styled.div``;
+let ForgetPasswordWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+let CheckBoxLabel = styled.label`
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: ${defaultTheme.palette.textDarkColor};
+`;
+let ForgetPasswordLink = styled.a`
+  font-weight: 500;
+  font-size: 14px;
+  color: ${defaultTheme.palette.textDarkColor};
+  text-decoration: none;
+`;
+
 // useStyles
 const useStyles = makeStyles((theme) => ({
   myCheckBox: {
@@ -148,90 +239,3 @@ function Login() {
 }
 
 export default Login;
-
-let MainContainer = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  background: #f3f8fa;
-  padding: 30px 0;
-
-  @media (max-width: 500px) {
-    min-height: 700px;
-    /* border: 2px solid red; */
-  }
-`;
-let Logo = styled.a`
-  display: block;
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  img {
-    width: 194.39px;
-    height: 78px;
-  }
-
-  @media (max-width: 880px) {
-    img {
-      width: 150px;
-    }
-  }
-
-  @media (max-width: 800px) {
-    position: static;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img {
-      width: 134.39px;
-    }
-  }
-`;
-let Container = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-let FormContainer = styled.form`
-  margin-top: 24px;
-`;
-let FormContainerWrapper = styled.form`
-  width: 90%;
-  max-width: 342px;
-`;
-let ContainerFormLabel = styled.p`
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  color: #161c2f;
-  margin-bottom: 8px;
-`;
-let ContainerFormTitle = styled.p`
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 37px;
-  color: #161c2f;
-`;
-let FormControlWrapper = styled.div``;
-let ForgetPasswordWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-let CheckBoxLabel = styled.label`
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  color: #161c2f;
-`;
-let ForgetPasswordLink = styled.a`
-  font-weight: 500;
-  font-size: 14px;
-  color: #161c2f;
-  text-decoration: none;
-`;
