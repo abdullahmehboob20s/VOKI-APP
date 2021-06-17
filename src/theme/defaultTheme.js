@@ -15,6 +15,8 @@ const theme = createMuiTheme({
     formLabelColor: "#575454",
     shadowBlueColor: " rgba(149, 172, 188, 0.5)",
     lightBlueColor: "rgba(22, 28, 47, 0.75)",
+    tabIndicatorColor: "#0874F0",
+    tabBackgroundColor: "#EAF0F4",
   },
 });
 
