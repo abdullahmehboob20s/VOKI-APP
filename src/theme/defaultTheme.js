@@ -13,6 +13,8 @@ const theme = createMuiTheme({
     redBgColor: "#EF4136",
     footerTitleColor: " #413f3f",
     formLabelColor: "#575454",
+    shadowBlueColor: " rgba(149, 172, 188, 0.5)",
+    lightBlueColor: "rgba(22, 28, 47, 0.75)",
   },
 });
 
