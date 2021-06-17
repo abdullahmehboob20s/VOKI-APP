@@ -13,17 +13,8 @@ import { FiPhoneCall } from "react-icons/fi";
 import { AiOutlineHistory } from "react-icons/ai";
 import { VscCallIncoming } from "react-icons/vsc";
 import defaultTheme from "theme/defaultTheme";
+import { Box } from "@material-ui/core";
 
-let SidebarContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 350px;
-  height: 100vh;
-  background-color: ${defaultTheme.palette.textDarkColor};
-  overflow-y: scroll;
-  padding-bottom: 50px;
-`;
 let LogoSidebar = styled.a`
   width: 100%;
   padding: 40px;
@@ -38,19 +29,6 @@ let LogoSidebar = styled.a`
   }
 `;
 
-let SidebarLogout = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  color: white;
-  margin-bottom: 50px;
-`;
-let ShieldUserLineIcon = styled.div`
-  font-size: 30px;
-  margin-right: 10px;
-`;
-let SidebarLogoutTitles = styled.div``;
 let SidebarLogoutTitle = styled.p`
   margin-bottom: 5px;
   font-weight: bold;
@@ -69,20 +47,36 @@ let SidebarLogoutTitleBtn = styled.a`
 
 function Sidebar() {
   return (
-    <SidebarContainer>
+    <Box
+      position="fixed"
+      top="0"
+      left="0"
+      width="350px"
+      height="100vh"
+      bgcolor={defaultTheme.palette.textDarkColor}
+      overflow="hidden scroll"
+      paddingBottom="50px"
+    >
       <LogoSidebar as={Link} to="/">
         <img src={logoSidebar} alt="" />
       </LogoSidebar>
 
-      <SidebarLogout>
-        <ShieldUserLineIcon>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="100px"
+        color="white"
+        marginBottom="50px"
+      >
+        <Box fontSize="30px" mr="10px">
           <RiShieldUserLine />
-        </ShieldUserLineIcon>
-        <SidebarLogoutTitles>
+        </Box>
+        <Box>
           <SidebarLogoutTitle>Super Admin</SidebarLogoutTitle>
           <SidebarLogoutTitleBtn as={Link}>Log out</SidebarLogoutTitleBtn>
-        </SidebarLogoutTitles>
-      </SidebarLogout>
+        </Box>
+      </Box>
 
       {/*  */}
 
@@ -112,7 +106,7 @@ function Sidebar() {
       </div>
 
       {/*  */}
-    </SidebarContainer>
+    </Box>
   );
 }
 

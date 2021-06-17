@@ -6,19 +6,16 @@ import Footer from "layouts/Footer/Footer";
 import ReturningIcon from "components/ReturningIcon/ReturningIcon";
 import FormButtom from "components/Button/FormButton";
 import { Box } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import defaultTheme from "theme/defaultTheme";
 
-const useStyles = makeStyles((theme) => ({
-  box: {
-    minHeight: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    padding: "50px 60px",
-    backgroundColor: theme.palette.bgLightColor,
-  },
-}));
-
+let BoxContainer = styled(Box)`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 60px;
+  background-color: ${defaultTheme.palette.bgLightColor};
+  /* border: 2px solid red; */
+`;
 let AgentTitle = styled.p`
   font-style: normal;
   font-weight: bold;
@@ -63,7 +60,6 @@ let TableData = styled.td`
 `;
 
 function Agents() {
-  let classes = useStyles();
   let [agents, setAgents] = React.useState([
     {
       id: 1,
@@ -86,7 +82,7 @@ function Agents() {
   ]);
 
   return (
-    <Box className={classes.box}>
+    <BoxContainer>
       <Box flex="1">
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <AgentTitle>Agents</AgentTitle>
@@ -136,7 +132,7 @@ function Agents() {
         </Box>
       </Box>
       <Footer />
-    </Box>
+    </BoxContainer>
   );
 }
 

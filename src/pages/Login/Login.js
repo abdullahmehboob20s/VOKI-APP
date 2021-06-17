@@ -1,22 +1,21 @@
 import React from "react";
 
 // logo
-import logo from "../../assets/images/logo.svg";
+import logo from "assets/images/logo.svg";
 
 // react-router-dom
 import { Link, useHistory } from "react-router-dom";
 
 // components
-import FormControlInput from "../../components/Input/FormControlInput";
-import FormButton from "../../components/Button/FormButton";
-import Footer from "../../layouts/Footer/Footer";
+import FormControlInput from "components/Input/FormControlInput";
+import FormButton from "components/Button/FormButton";
+import Footer from "layouts/Footer/Footer";
 
 // styled-components
 import styled from "styled-components";
 
 // @material-ui/core"
-import { Checkbox } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Box, Checkbox } from "@material-ui/core";
 
 import defaultTheme from "theme/defaultTheme";
 
@@ -61,14 +60,6 @@ let Logo = styled.a`
     }
   }
 `;
-let Container = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-`;
 
 let FormContainer = styled.form`
   margin-top: 24px;
@@ -90,12 +81,6 @@ let ContainerFormTitle = styled.p`
   line-height: 37px;
   color: ${defaultTheme.palette.textDarkColor};
 `;
-let FormControlWrapper = styled.div``;
-let ForgetPasswordWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
 let CheckBoxLabel = styled.label`
   font-weight: 500;
   font-size: 14px;
@@ -108,19 +93,16 @@ let ForgetPasswordLink = styled.a`
   color: ${defaultTheme.palette.textDarkColor};
   text-decoration: none;
 `;
-
-// useStyles
-const useStyles = makeStyles((theme) => ({
-  myCheckBox: {
-    marginRight: "7.5px",
-    borderRadius: "4px",
-    width: "16.95px",
-    height: "17px",
-  },
-}));
+let CustomCheckBox = styled(Checkbox)`
+  &&& {
+    margin-right: 7.5px;
+    border-radius: 4px;
+    width: 16.95px;
+    height: 17px;
+  }
+`;
 
 function Login() {
-  let classes = useStyles();
   let history = useHistory();
 
   let [data, setData] = React.useState({
@@ -178,7 +160,13 @@ function Login() {
       <Logo as={Link} to="/">
         <img src={logo} alt="" />
       </Logo>
-      <Container>
+      <Box
+        flex="1"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+      >
         {/* FormContainerWrapper */}
         <FormContainerWrapper>
           {/* Titles */}
@@ -187,7 +175,7 @@ function Login() {
 
           {/* FormContainer */}
           <FormContainer>
-            <FormControlWrapper>
+            <Box>
               {/* FormControlInput */}
               <FormControlInput
                 value={data.email}
@@ -214,24 +202,29 @@ function Login() {
                 name="password"
                 onchange={(e) => inputValue(e)}
               />
-            </FormControlWrapper>
-            <ForgetPasswordWrapper>
-              <div>
-                <Checkbox
-                  className={classes.myCheckBox}
-                  id="remember"
-                  color="primary"
-                />
+            </Box>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Box>
+                <CustomCheckBox id="remember" color="primary"></CustomCheckBox>
                 <CheckBoxLabel htmlFor="remember">Remember me</CheckBoxLabel>
-              </div>
+              </Box>
               <ForgetPasswordLink as={Link} to="/forgetpassword">
                 Forgot password?
               </ForgetPasswordLink>
-            </ForgetPasswordWrapper>
-            <FormButton type="submit" title="LOG IN" onPress={formSubmit} />
+            </Box>
+
+            <FormButton
+              type="submit"
+              title="LOG IN"
+              onPress={formSubmit}
+            ></FormButton>
           </FormContainer>
         </FormContainerWrapper>
-      </Container>
+      </Box>
       {/* Footer */}
       <Footer />
     </MainContainer>

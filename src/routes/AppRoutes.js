@@ -1,9 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 import Sidebar from "layouts/Sidebar/Sidebar";
 
 // react-router-dom
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "theme/defaultTheme";
 
 // Pages
@@ -16,8 +15,11 @@ import CallHistory from "../pages/CallHistory/CallHistory";
 import Calls from "../pages/Calls/Calls";
 import Phone from "../pages/Phone/Phone";
 import Reports from "../pages/Reports/Reports";
+
+// material-ui (imports)
 import { Box } from "@material-ui/core";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/core";
+
 function AppRoutes() {
   return (
     <ThemeProvider theme={theme}>

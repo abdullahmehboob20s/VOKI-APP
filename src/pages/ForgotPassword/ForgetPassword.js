@@ -1,12 +1,12 @@
 import React from "react";
 // logo
-import logo from "../../assets/images/logo.svg";
+import logo from "assets/images/logo.svg";
 // react-router-dom
 import { Link, useHistory } from "react-router-dom";
 // components
-import FormControlInput from "../../components/Input/FormControlInput";
-import FormButton from "../../components/Button/FormButton";
-import Footer from "../../layouts/Footer/Footer";
+import FormControlInput from "components/Input/FormControlInput";
+import FormButton from "components/Button/FormButton";
+import Footer from "layouts/Footer/Footer";
 // styled-components
 import styled from "styled-components";
 
@@ -54,16 +54,6 @@ let Logo = styled.a`
     }
   }
 `;
-
-let Container = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-`;
-
 let FormContainer = styled.form`
   margin-top: 24px;
 `;
@@ -132,7 +122,13 @@ function Login() {
       <Logo as={Link} to="/">
         <img src={logo} alt="" />
       </Logo>
-      <Container>
+      <Box
+        flex="1"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+      >
         {/* FormContainerWrapper */}
         <FormContainerWrapper>
           {/* Titles */}
@@ -163,7 +159,7 @@ function Login() {
             <FormButton title="Reset Password" onPress={formSubmit} />
           </FormContainer>
         </FormContainerWrapper>
-      </Container>
+      </Box>
       {/* Footer */}
       <Footer />
     </MainContainer>

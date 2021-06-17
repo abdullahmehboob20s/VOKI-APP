@@ -1,34 +1,28 @@
 import React from "react";
-import { Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 import defaultTheme from "theme/defaultTheme";
+import styled from "styled-components";
 
-const useStyles = makeStyles((theme) => ({
-  customBtn: {
-    // width: "100%",
-    height: "48px",
-    marginTop: "17px",
-    color: "white",
-    backgroundColor: `${defaultTheme.palette.textDarkColor}`,
-    "&:hover": {
-      backgroundColor: `${defaultTheme.palette.textDarkColor}`,
-    },
-  },
-}));
+let StyledButton = styled(Button)`
+  &&& {
+    height: 48px;
+    margin-top: 17px;
+    color: white;
+    background-color: ${defaultTheme.palette.textDarkColor};
+    width: ${(props) => props.custom_width};
+    &:hover {
+      background-color: ${defaultTheme.palette.textDarkColor};
+    }
+  }
+`;
 
 let FormButton = (props) => {
-  let classes = useStyles();
   let { title, onPress, width = "100%" } = props;
 
   return (
-    <Button
-      variant="contained"
-      onClick={onPress}
-      style={{ width: width }}
-      className={classes.customBtn}
-    >
+    <StyledButton variant="contained" onClick={onPress} custom_width={width}>
       {title}
-    </Button>
+    </StyledButton>
   );
 };
 
