@@ -77,7 +77,7 @@ let ContainerFormTitle = styled.p`
   margin-bottom: 8px;
 `;
 
-function Login() {
+function ForgetPassword() {
   let history = useHistory();
   let [data, setData] = React.useState({
     email: "",
@@ -166,4 +166,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default ForgetPassword;

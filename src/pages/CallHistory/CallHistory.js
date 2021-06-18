@@ -55,7 +55,7 @@ let TableHeading = styled.th`
   color: ${defaultTheme.palette.textBoldColor};
 `;
 
-function Agents() {
+function CallHistory() {
   const [expanded, setExpanded] = React.useState("");
   const handleChange2 = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -152,4 +152,4 @@ function Agents() {
   );
 }
 
-export default Agents;
+export default CallHistory;

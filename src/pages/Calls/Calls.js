@@ -71,7 +71,7 @@ let CustomTab = styled(Tab)`
   }
 `;
 
-function Agents() {
+function Calls() {
   let [agents, setAgents] = React.useState([
     {
       id: 1,
@@ -173,4 +173,4 @@ function Agents() {
   );
 }
 
-export default Agents;
+export default Calls;
