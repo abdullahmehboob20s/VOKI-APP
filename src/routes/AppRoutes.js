@@ -6,15 +6,15 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "theme/defaultTheme";
 
 // Pages
-import Login from "../pages/Login/Login";
-import ForgetPassword from "../pages/ForgotPassword/ForgetPassword";
-import ResetPassword from "../pages/ResetPassword/ResetPassword";
-import Agents from "../pages/Agents/Agents";
-import CallBacks from "../pages/CallBacks/CallBacks";
-import CallHistory from "../pages/CallHistory/CallHistory";
-import Calls from "../pages/Calls/Calls";
-import Phone from "../pages/Phone/Phone";
-import Reports from "../pages/Reports/Reports";
+import Login from "pages/Login/Login";
+import ForgetPassword from "pages/ForgotPassword/ForgetPassword";
+import ResetPassword from "pages/ResetPassword/ResetPassword";
+import Agents from "pages/Agents/Agents";
+import CallBacks from "pages/CallBacks/CallBacks";
+import CallHistory from "pages/CallHistory/CallHistory";
+import Calls from "pages/Calls/Calls";
+import Phone from "pages/Phone/Phone";
+import Reports from "pages/Reports/Reports";
 
 // material-ui (imports)
 import { Box } from "@material-ui/core";
