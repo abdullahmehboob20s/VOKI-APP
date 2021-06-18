@@ -8,7 +8,7 @@ import { FormControl, Select, MenuItem } from "@material-ui/core";
 
 // Styling (styled-components)
 const CustomFormControl = styled(FormControl)`
-  min-width: 232px;
+  width: 232px;
   height: 48px;
   border-radius: 4px;
   border: 1px solid ${defaultTheme.palette.borderColor};

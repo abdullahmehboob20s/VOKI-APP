@@ -17,6 +17,7 @@ const theme = createMuiTheme({
     lightBlueColor: "rgba(22, 28, 47, 0.75)",
     tabIndicatorColor: "#0874F0",
     tabBackgroundColor: "#EAF0F4",
+    headerBackColor : "#14C59C",
   },
 });
 
