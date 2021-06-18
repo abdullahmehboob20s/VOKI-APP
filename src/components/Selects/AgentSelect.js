@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ReturningIcon from "../ReturningIcon/ReturningIcon";
+import ReturningIcon from "components/ReturningIcon/ReturningIcon";
 import defaultTheme from "theme/defaultTheme";
 
 // For Header Select
