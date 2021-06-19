@@ -5,6 +5,7 @@ import Footer from "layouts/Footer/Footer";
 import styled from "styled-components";
 import { Box } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
+import { useHistory } from "react-router-dom";
 
 // Styling
 let MainContainer = styled.div`
@@ -39,8 +40,7 @@ let FormContainerWrapper = styled.form`
 `;
 
 function CreateAgentPage(props) {
-  let { page, setPage } = props;
-
+  let history = useHistory();
   let [data, setData] = React.useState({
     firstName: "",
     lastName: "",
@@ -93,7 +93,7 @@ function CreateAgentPage(props) {
       email: "",
     });
 
-    setPage("Agents");
+    history.goBack();
   };
 
   return (

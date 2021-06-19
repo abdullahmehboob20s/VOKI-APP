@@ -15,6 +15,8 @@ import CallHistory from "pages/CallHistory/CallHistory";
 import Calls from "pages/Calls/Calls";
 import Phone from "pages/Phone/Phone";
 import Reports from "pages/Reports/Reports";
+import CreateAgentPage from "pages/Agents/CreateAgentPage";
+import AgentPasswordChange from "pages/Agents/AgentPasswordChange";
 
 // material-ui (imports)
 import { Box } from "@material-ui/core";
@@ -34,6 +36,16 @@ function AppRoutes() {
             <Sidebar />
             <Box ml="350px">
               <Route path="/Agents" exact component={Agents} />
+              <Route
+                exact
+                path="/Agents/createAgent"
+                component={CreateAgentPage}
+              />
+              <Route
+                exact
+                path="/Agents/agentPasswordChange"
+                component={AgentPasswordChange}
+              />
               <Route path="/CallBacks" exact component={CallBacks} />
               <Route path="/CallHistory" exact component={CallHistory} />
               <Route path="/Calls" exact component={Calls} />

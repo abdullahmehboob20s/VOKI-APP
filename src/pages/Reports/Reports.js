@@ -1,13 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Footer from "layouts/Footer/Footer";
-import { Box, TextField } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
 import MyCustomSelect from "components/Selects/MyCustomSelect";
 import CustomDatePicker from "components/CustomDatePicker/CustomDatePicker";
-import MyCustomTextField from "components/TextField/MyCustomTextField";
-import whatsAppIcon from "assets/images/whatsapp-icon.svg";
-import phoneCallIcon from "assets/images/phonne-call-icon.svg";
 import StartRating from "components/Ratings/StarRating";
 
 let BoxContainer = styled(Box)`
@@ -56,6 +53,8 @@ let TableHeading = styled.th`
   font-weight: 600;
   font-size: 18px;
   color: ${defaultTheme.palette.textBoldColor};
+  padding-right: 20px;
+  /* border: 2px solid red; */
 `;
 let TableData = styled.td`
   flex: ${(props) => props.textAlign || "1"};
@@ -63,6 +62,7 @@ let TableData = styled.td`
   font-weight: 500;
   font-size: 16px;
   color: ${defaultTheme.palette.textBoldColor};
+  /* padding-right: 20px; */
   /* border: 2px solid red; */
 `;
 
