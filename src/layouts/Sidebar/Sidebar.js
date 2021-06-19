@@ -28,12 +28,12 @@ let LogoSidebar = styled.a`
     cursor: pointer;
   }
 `;
-
 let SidebarLogoutTitle = styled.p`
   margin-bottom: 5px;
   font-weight: bold;
   font-size: 20px;
   line-height: 24px;
+
   color: ${defaultTheme.palette.textLightColor};
 `;
 let SidebarLogoutTitleBtn = styled.a`
@@ -44,19 +44,24 @@ let SidebarLogoutTitleBtn = styled.a`
   line-height: 24px;
   color: ${defaultTheme.palette.textLightColor};
 `;
+let SidebarContainer = styled(Box)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 100vh;
+  background-color: ${defaultTheme.palette.textDarkColor};
+  overflow: hidden scroll;
+  padding-bottom: 50px;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+`;
 
 function Sidebar() {
   return (
-    <Box
-      position="fixed"
-      top="0"
-      left="0"
-      width="350px"
-      height="100vh"
-      bgcolor={defaultTheme.palette.textDarkColor}
-      overflow="hidden scroll"
-      paddingBottom="50px"
-    >
+    <SidebarContainer>
       <LogoSidebar as={Link} to="/">
         <img src={logoSidebar} alt="" />
       </LogoSidebar>
@@ -69,7 +74,7 @@ function Sidebar() {
         color="white"
         marginBottom="50px"
       >
-        <Box fontSize="30px" mr="10px">
+        <Box fontSize="27px" width="50px">
           <RiShieldUserLine />
         </Box>
         <Box>
@@ -106,7 +111,7 @@ function Sidebar() {
       </div>
 
       {/*  */}
-    </Box>
+    </SidebarContainer>
   );
 }
 

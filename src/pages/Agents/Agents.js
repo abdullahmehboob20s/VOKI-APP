@@ -120,7 +120,7 @@ let DialogClosingBtn = styled(Button)`
 `;
 
 function AgentPage(props) {
-  let { path, url } = useRouteMatch();
+  let { path } = useRouteMatch();
   let history = useHistory();
   let [open, setOpen] = React.useState(false);
   let [agents, setAgents] = React.useState([
