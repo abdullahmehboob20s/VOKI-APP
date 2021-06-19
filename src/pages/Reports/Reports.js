@@ -7,13 +7,19 @@ import MyCustomSelect from "components/Selects/MyCustomSelect";
 import CustomDatePicker from "components/CustomDatePicker/CustomDatePicker";
 import StartRating from "components/Ratings/StarRating";
 
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+
 let BoxContainer = styled(Box)`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 50px 60px;
-
-  /* border: 2px solid red; */
 `;
 let AgentTitle = styled.p`
   font-style: normal;
@@ -21,30 +27,6 @@ let AgentTitle = styled.p`
   font-size: 48px;
   line-height: 59px;
   color: ${defaultTheme.palette.textDarkColor};
-`;
-let TableContainer = styled.table`
-  width: 100%;
-  text-align: left;
-  border-radius: 4px;
-  height: auto;
-  background-color: white;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  margin-bottom: 44px;
-
-  & tbody tr:not(:last-child) {
-    border-bottom: 1px solid ${defaultTheme.palette.borderColor};
-  }
-  & thead tr {
-    border-bottom: 1px solid ${defaultTheme.palette.borderColor};
-  }
-`;
-let TableRow = styled.tr`
-  width: 100%;
-  display: flex;
-  background-color: ${defaultTheme.palette.whiteColor};
-  align-items: center;
-  padding: 21px 24px;
-  /* border: 2px solid red; */
 `;
 let TableHeading = styled.th`
   flex: ${(props) => props.textAlign || "1"};
@@ -54,23 +36,36 @@ let TableHeading = styled.th`
   font-size: 18px;
   color: ${defaultTheme.palette.textBoldColor};
   padding-right: 20px;
-  /* border: 2px solid red; */
 `;
-let TableData = styled.td`
-  flex: ${(props) => props.textAlign || "1"};
-  text-align: ${(props) => props.textAlign || "left"};
-  font-weight: 500;
-  font-size: 16px;
-  color: ${defaultTheme.palette.textBoldColor};
-  /* padding-right: 20px; */
-  /* border: 2px solid red; */
+let CustomTableContainer = styled(TableContainer)`
+  &.MuiTableContainer-root {
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    margin-bottom: 44px;
+  }
+`;
+
+let CustomTableRow = styled(TableRow)``;
+let CustomTableCell = styled(TableCell)`
+  &.MuiTableCell-root {
+  }
+
+  &.MuiTableCell-head {
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 18px;
+    color: ${defaultTheme.palette.textBoldColor};
+  }
+  &.MuiTableCell-body {
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 16px;
+    color: ${defaultTheme.palette.textBoldColor};
+  }
 `;
 
 function Reports() {
-  const [expanded, setExpanded] = React.useState("");
-  const handleChange2 = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
-  };
   let [agents, setAgents] = React.useState([
     {
       id: 1,
@@ -119,30 +114,40 @@ function Reports() {
 
           {/* ============================================= */}
           <Box mt="38px">
-            <TableContainer as="table">
-              <thead>
-                <TableRow>
-                  <TableHeading>Agent Name</TableHeading>
-                  <TableHeading>Total Calls Handle</TableHeading>
-                  <TableHeading>Ocupancy Rate</TableHeading>
-                  <TableHeading>Quality of Service</TableHeading>
-                  <TableHeading>Average Waiting Time</TableHeading>
-                  <TableHeading>Number of Callbacks</TableHeading>
-                </TableRow>
-              </thead>
-              <tbody>
-                {agents.map((agent, index) => (
-                  <TableRow key={index}>
-                    <TableData>{agent.averageHandleTime}</TableData>
-                    <TableData>{agent.totalCallsHandle}</TableData>
-                    <TableData>{agent.accupayRate}</TableData>
-                    <TableData>{agent.qualityOfServices}</TableData>
-                    <TableData>{agent.averageWaitingTime}</TableData>
-                    <TableData>{agent.numberCallBacks}</TableData>
-                  </TableRow>
-                ))}
-              </tbody>
-            </TableContainer>
+            <CustomTableContainer>
+              <Table>
+                <TableHead>
+                  <CustomTableRow>
+                    <CustomTableCell>Agent Name </CustomTableCell>
+                    <CustomTableCell>Total Calls Handle</CustomTableCell>
+                    <CustomTableCell>Ocupancy Rate</CustomTableCell>
+                    <CustomTableCell>Quality of Service</CustomTableCell>
+                    <CustomTableCell>Average Waiting Time</CustomTableCell>
+                    <CustomTableCell>Number of Callbacks</CustomTableCell>
+                  </CustomTableRow>
+                </TableHead>
+                <TableBody>
+                  {agents.map((agent, index) => (
+                    <CustomTableRow key={index}>
+                      <CustomTableCell>
+                        {agent.averageHandleTime}
+                      </CustomTableCell>
+                      <CustomTableCell>
+                        {agent.totalCallsHandle}
+                      </CustomTableCell>
+                      <CustomTableCell>{agent.accupayRate}</CustomTableCell>
+                      <CustomTableCell>
+                        {agent.qualityOfServices}
+                      </CustomTableCell>
+                      <CustomTableCell>
+                        {agent.averageWaitingTime}
+                      </CustomTableCell>
+                      <CustomTableCell>{agent.numberCallBacks}</CustomTableCell>
+                    </CustomTableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </CustomTableContainer>
           </Box>
           {/* ============================================= */}
         </Box>
