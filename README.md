@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Voki App
 
 ![Web capture_19-6-2021_3470_voki-app netlify app](https://user-images.githubusercontent.com/64467248/122639965-b33f7000-d0b1-11eb-8e30-457633070f96.jpeg)
 
