@@ -9,6 +9,7 @@ import { Box, Button, Dialog } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
 import { useHistory } from "react-router-dom";
 import { useRouteMatch } from "react-router-dom";
+import DailogBtn from "components/Button/DailogBtn";
 
 let BoxContainer = styled(Box)`
   min-height: 100vh;
@@ -84,40 +85,6 @@ let DialogBtns = styled.div`
   width: 80%;
   display: flex;
 `;
-let DialogClosingBtn = styled(Button)`
-  flex: 1;
-  margin-right: ${(props) => props.mr};
-  background: ${(props) =>
-    props.border === true
-      ? defaultTheme.palette.whiteColor
-      : defaultTheme.palette.textDarkColor};
-  border-radius: 4px;
-  height: 48px;
-  color: ${(props) =>
-    props.border === true
-      ? defaultTheme.palette.textDarkColor
-      : defaultTheme.palette.whiteColor};
-
-  border: ${(props) =>
-    props.border === true
-      ? `1px solid ${defaultTheme.palette.textDarkColor}`
-      : "none"};
-  &:hover {
-    background: ${(props) =>
-      props.border === true
-        ? defaultTheme.palette.textDarkColor
-        : defaultTheme.palette.whiteColor};
-    color: ${(props) =>
-      props.border === true
-        ? defaultTheme.palette.whiteColor
-        : defaultTheme.palette.textDarkColor};
-
-    border: ${(props) =>
-      props.border === true
-        ? "none"
-        : `1px solid ${defaultTheme.palette.textDarkColor}`};
-  }
-`;
 
 const AgentPage = (props) => {
   let { path } = useRouteMatch();
@@ -171,16 +138,8 @@ const AgentPage = (props) => {
               <DialogHeading>Delete Agent</DialogHeading>
               <DialogDisc>Are you sure you wanna delete this agent?</DialogDisc>
               <DialogBtns>
-                <DialogClosingBtn
-                  onClick={() => setOpen(false)}
-                  border={true}
-                  mr="10px"
-                >
-                  No
-                </DialogClosingBtn>
-                <DialogClosingBtn border={false} mr="0px">
-                  Yes
-                </DialogClosingBtn>
+                <DailogBtn title="No"  border={true} mr="10px" click={() => setOpen(false)} />
+                <DailogBtn title="Yes" border={false} mr="0px" click={() => setOpen(false)} />
               </DialogBtns>
             </CustomBox>
           </Dialog>
