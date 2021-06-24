@@ -27,7 +27,7 @@ let CallIconWrapper = styled(Box)`
   margin-left: 20px;
 `;
 
-function CallHistoryHeader() {
+const CallHistoryHeader = () => {
   return (
     <Box
       display="flex"
@@ -45,6 +45,6 @@ function CallHistoryHeader() {
       </Box>
     </Box>
   );
-}
+};
 
 export default CallHistoryHeader;

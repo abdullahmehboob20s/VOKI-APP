@@ -14,7 +14,7 @@ let DatePicker = styled(KeyboardDatePicker)`
   border-color: red;
 `;
 
-function CustomDatePicker() {
+const CustomDatePicker = () => {
   const [fromDate, setFromDate] = React.useState(new Date());
   const [toDate, setToDate] = React.useState(new Date());
 
@@ -46,6 +46,6 @@ function CustomDatePicker() {
       </Box>
     </MuiPickersUtilsProvider>
   );
-}
+};
 
 export default CustomDatePicker;

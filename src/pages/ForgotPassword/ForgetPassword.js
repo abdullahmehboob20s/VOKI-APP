@@ -77,7 +77,7 @@ let ContainerFormTitle = styled.p`
   margin-bottom: 8px;
 `;
 
-function ForgetPassword() {
+const ForgetPassword = () => {
   let history = useHistory();
   let [data, setData] = React.useState({
     email: "",
@@ -113,7 +113,7 @@ function ForgetPassword() {
       email: "",
     });
 
-    history.push("/resetpassword");
+    history.push("/agents/resetpassword");
   };
 
   return (
@@ -164,6 +164,6 @@ function ForgetPassword() {
       <Footer />
     </MainContainer>
   );
-}
+};
 
 export default ForgetPassword;

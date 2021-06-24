@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Footer from "layouts/Footer/Footer";
-import { Box, TextField } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
 import MyCustomSelect from "components/Selects/MyCustomSelect";
 import CustomDatePicker from "components/CustomDatePicker/CustomDatePicker";
@@ -55,12 +55,12 @@ let TableHeading = styled.th`
   color: ${defaultTheme.palette.textBoldColor};
 `;
 
-function CallHistory() {
+const CallHistory = () => {
   const [expanded, setExpanded] = React.useState("");
   const handleChange2 = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
-  let [agents, setAgents] = React.useState([
+  let agents = [
     {
       id: 1,
       name: "Lucas Franco",
@@ -88,7 +88,7 @@ function CallHistory() {
       duration: "12 min",
       caller: "Valentin Tudose",
     },
-  ]);
+  ];
   const [names, setNames] = React.useState("All");
 
   const handleChange = (event) => {
@@ -150,6 +150,6 @@ function CallHistory() {
       </BoxContainer>
     </Box>
   );
-}
+};
 
 export default CallHistory;

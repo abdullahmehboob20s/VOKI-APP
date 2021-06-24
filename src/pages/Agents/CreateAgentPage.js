@@ -39,7 +39,7 @@ let FormContainerWrapper = styled.form`
   max-width: 342px;
 `;
 
-function CreateAgentPage(props) {
+const CreateAgentPage = (props) => {
   let history = useHistory();
   let [data, setData] = React.useState({
     firstName: "",
@@ -164,6 +164,6 @@ function CreateAgentPage(props) {
       <Footer />
     </MainContainer>
   );
-}
+};
 
 export default CreateAgentPage;

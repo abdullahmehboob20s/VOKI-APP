@@ -4,7 +4,7 @@ import React from "react";
 import logo from "assets/images/logo.svg";
 
 // react-router-dom
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // components
 import FormControlInput from "components/Input/FormControlInput";
@@ -82,8 +82,7 @@ let ContainerFormTitle = styled.p`
   margin-bottom: 8px;
 `;
 
-function Login() {
-  let history = useHistory();
+const Login = () => {
   let [data, setData] = React.useState({
     newPassword: "",
     retypePassword: "",
@@ -115,7 +114,7 @@ function Login() {
       return;
     }
 
-    if (data.newPassword != data.retypePassword) {
+    if (data.newPassword !== data.retypePassword) {
       seterrorMsg({
         retypePassword: {
           status: true,
@@ -199,6 +198,6 @@ function Login() {
       <Footer />
     </MainContainer>
   );
-}
+};
 
 export default Login;

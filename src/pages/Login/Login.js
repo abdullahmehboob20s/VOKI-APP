@@ -102,7 +102,7 @@ let CustomCheckBox = styled(Checkbox)`
   }
 `;
 
-function Login() {
+const Login = () => {
   let history = useHistory();
 
   let [data, setData] = React.useState({
@@ -125,31 +125,31 @@ function Login() {
   let formSubmit = () => {
     // HAVE TO UNCOMMENT LATER ======================================
 
-    // if (!data.email || !data.password) {
-    //   seterrorMsg({
-    //     password: {
-    //       status: !data.password ? true : false,
-    //       msg: !data.password ? "Password Cannot Be Empty" : "",
-    //     },
-    //     email: {
-    //       status: !data.email ? true : false,
-    //       msg: !data.email ? "Email Cannot Be Empty" : "",
-    //     },
-    //   });
-    //   return;
-    // }
+    if (!data.email || !data.password) {
+      seterrorMsg({
+        password: {
+          status: !data.password ? true : false,
+          msg: !data.password ? "Password Cannot Be Empty" : "",
+        },
+        email: {
+          status: !data.email ? true : false,
+          msg: !data.email ? "Email Cannot Be Empty" : "",
+        },
+      });
+      return;
+    }
 
-    // seterrorMsg({
-    //   email: { status: false, msg: "" },
-    //   password: { status: false, msg: "" },
-    // });
+    seterrorMsg({
+      email: { status: false, msg: "" },
+      password: { status: false, msg: "" },
+    });
 
-    // console.log(data);
+    console.log(data);
 
-    // setData({
-    //   email: "",
-    //   password: "",
-    // });
+    setData({
+      email: "",
+      password: "",
+    });
 
     history.push("/Agents");
   };
@@ -194,7 +194,6 @@ function Login() {
                 error={errorMsg.password.status}
                 errorMsg={errorMsg.password.msg}
                 label="Password"
-                type="email"
                 marginBottom="10px"
                 width="100%"
                 forhtml="Password"
@@ -212,7 +211,7 @@ function Login() {
                 <CustomCheckBox id="remember" color="primary"></CustomCheckBox>
                 <CheckBoxLabel htmlFor="remember">Remember me</CheckBoxLabel>
               </Box>
-              <ForgetPasswordLink as={Link} to="/forgetpassword">
+              <ForgetPasswordLink as={Link} to="/agents/forgetpassword">
                 Forgot password?
               </ForgetPasswordLink>
             </Box>
@@ -229,6 +228,6 @@ function Login() {
       <Footer />
     </MainContainer>
   );
-}
+};
 
 export default Login;

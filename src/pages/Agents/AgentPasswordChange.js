@@ -32,7 +32,7 @@ let CreateAgentSubtitle = styled.p`
   color: ${defaultTheme.palette.textBoldColor};
 `;
 
-function AgentPasswordChange() {
+const AgentPasswordChange = () => {
   return (
     <MainContainer>
       {/* Title */}
@@ -47,6 +47,6 @@ function AgentPasswordChange() {
       <Footer />
     </MainContainer>
   );
-}
+};
 
 export default AgentPasswordChange;

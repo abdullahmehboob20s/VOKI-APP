@@ -62,7 +62,7 @@ let AccordionDetailDisc2 = styled.p`
   white-space: wrap;
 `;
 
-function TableAccordion(props) {
+const TableAccordion = (props) => {
   let { agent, handleChange2, expanded } = props;
 
   return (
@@ -87,7 +87,7 @@ function TableAccordion(props) {
               textAlign: "center",
             }}
           >
-            <ArrowDown rotate={agent.panel == expanded ? "180deg" : "0"} />
+            <ArrowDown rotate={agent.panel === expanded ? "180deg" : "0"} />
           </TableData>
         </TableRow>
       </CustomAccordionSummary>
@@ -169,6 +169,6 @@ function TableAccordion(props) {
       </CustomAccordionDetails>
     </Accordion>
   );
-}
+};
 
 export default TableAccordion;

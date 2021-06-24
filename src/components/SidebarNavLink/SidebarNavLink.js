@@ -32,7 +32,7 @@ let SidebarLinkLabel = styled.p`
   font-size: 22px;
 `;
 
-function SidebarNavLink(props) {
+const SidebarNavLink = (props) => {
   let { icon, to, title } = props;
   return (
     <SideBarLink as={NavLink} exact activeClassName="SideBarLinkActive" to={to}>
@@ -42,6 +42,6 @@ function SidebarNavLink(props) {
       </Box>
     </SideBarLink>
   );
-}
+};
 
 export default SidebarNavLink;

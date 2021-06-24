@@ -88,42 +88,42 @@ let DialogClosingBtn = styled(Button)`
   flex: 1;
   margin-right: ${(props) => props.mr};
   background: ${(props) =>
-    props.border === "true"
+    props.border === true
       ? defaultTheme.palette.whiteColor
       : defaultTheme.palette.textDarkColor};
   border-radius: 4px;
   height: 48px;
   color: ${(props) =>
-    props.border === "true"
+    props.border === true
       ? defaultTheme.palette.textDarkColor
       : defaultTheme.palette.whiteColor};
 
   border: ${(props) =>
-    props.border === "true"
+    props.border === true
       ? `1px solid ${defaultTheme.palette.textDarkColor}`
       : "none"};
   &:hover {
     background: ${(props) =>
-      props.border === "true"
+      props.border === true
         ? defaultTheme.palette.textDarkColor
         : defaultTheme.palette.whiteColor};
     color: ${(props) =>
-      props.border === "true"
+      props.border === true
         ? defaultTheme.palette.whiteColor
         : defaultTheme.palette.textDarkColor};
 
     border: ${(props) =>
-      props.border === "true"
+      props.border === true
         ? "none"
         : `1px solid ${defaultTheme.palette.textDarkColor}`};
   }
 `;
 
-function AgentPage(props) {
+const AgentPage = (props) => {
   let { path } = useRouteMatch();
   let history = useHistory();
   let [open, setOpen] = React.useState(false);
-  let [agents, setAgents] = React.useState([
+  let agents = [
     {
       id: 1,
       name: "Lucas Franco",
@@ -142,7 +142,7 @@ function AgentPage(props) {
       email: "nir@voki.com",
       status: "Offline",
     },
-  ]);
+  ];
 
   const openDialogBox = () => {
     setOpen(true);
@@ -173,12 +173,12 @@ function AgentPage(props) {
               <DialogBtns>
                 <DialogClosingBtn
                   onClick={() => setOpen(false)}
-                  border="true"
+                  border={true}
                   mr="10px"
                 >
                   No
                 </DialogClosingBtn>
-                <DialogClosingBtn border="false" mr="0px">
+                <DialogClosingBtn border={false} mr="0px">
                   Yes
                 </DialogClosingBtn>
               </DialogBtns>
@@ -236,6 +236,6 @@ function AgentPage(props) {
       </BoxContainer>
     </>
   );
-}
+};
 
 export default AgentPage;

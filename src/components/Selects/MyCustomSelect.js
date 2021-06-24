@@ -7,7 +7,7 @@ let CustomSelect = styled(Select)`
   width: 200px;
 `;
 
-function MyCustomSelect(props) {
+const MyCustomSelect = (props) => {
   let { data, func } = props;
 
   return (
@@ -26,6 +26,6 @@ function MyCustomSelect(props) {
       </CustomSelect>
     </FormControl>
   );
-}
+};
 
 export default MyCustomSelect;

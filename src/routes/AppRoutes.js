@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "layouts/Sidebar/Sidebar";
+import { createGlobalStyle } from "styled-components";
 
 // react-router-dom
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -22,14 +23,28 @@ import AgentPasswordChange from "pages/Agents/AgentPasswordChange";
 import { Box } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core";
 
-function AppRoutes() {
+const GlobalStyle = createGlobalStyle`
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+  }
+`;
+
+const AppRoutes = () => {
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Router>
         <Switch>
           <Route path="/" exact component={Login} />
-          <Route path="/forgetpassword" exact component={ForgetPassword} />
-          <Route path="/resetpassword" exact component={ResetPassword} />
+          <Route
+            path="/agents/forgetpassword"
+            exact
+            component={ForgetPassword}
+          />
+          <Route path="/agents/resetpassword" exact component={ResetPassword} />
           {/*  */}
 
           <Box position="relative">
@@ -46,11 +61,11 @@ function AppRoutes() {
                 path="/Agents/agentPasswordChange"
                 component={AgentPasswordChange}
               />
-              <Route path="/CallBacks" exact component={CallBacks} />
-              <Route path="/CallHistory" exact component={CallHistory} />
-              <Route path="/Calls" exact component={Calls} />
-              <Route path="/Phone" exact component={Phone} />
-              <Route path="/Reports" exact component={Reports} />
+              <Route path="/agents/CallBacks" exact component={CallBacks} />
+              <Route path="/agents/CallHistory" exact component={CallHistory} />
+              <Route path="/agents/Calls" exact component={Calls} />
+              <Route path="/agents/Phone" exact component={Phone} />
+              <Route path="/agents/Reports" exact component={Reports} />
             </Box>
           </Box>
 
@@ -59,6 +74,6 @@ function AppRoutes() {
       </Router>
     </ThemeProvider>
   );
-}
+};
 
 export default AppRoutes;

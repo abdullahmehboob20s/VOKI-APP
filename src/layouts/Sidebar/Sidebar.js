@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import logoSidebar from "assets/images/logo-sidebar.svg";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SidebarNavLink from "components/SidebarNavLink/SidebarNavLink";
 import {
   RiShieldUserLine,
@@ -59,7 +59,7 @@ let SidebarContainer = styled(Box)`
   }
 `;
 
-function Sidebar() {
+const Sidebar = () => {
   return (
     <SidebarContainer>
       <LogoSidebar as={Link} to="/">
@@ -91,28 +91,32 @@ function Sidebar() {
           title="Agents"
           to="/Agents"
         />
-        <SidebarNavLink icon={<BsPhone />} title="Phone" to="/Phone" />
-        <SidebarNavLink icon={<FiPhoneCall />} title="Calls" to="/Calls" />
+        <SidebarNavLink icon={<BsPhone />} title="Phone" to="/agents/Phone" />
+        <SidebarNavLink
+          icon={<FiPhoneCall />}
+          title="Calls"
+          to="/agents/Calls"
+        />
         <SidebarNavLink
           icon={<AiOutlineHistory />}
           title="Call History"
-          to="/CallHistory"
+          to="/agents/CallHistory"
         />
         <SidebarNavLink
           icon={<VscCallIncoming />}
           title="Call Backs"
-          to="/CallBacks"
+          to="/agents/CallBacks"
         />
         <SidebarNavLink
           icon={<RiCellphoneFill />}
           title="Reports"
-          to="/Reports"
+          to="/agents/Reports"
         />
       </div>
 
       {/*  */}
     </SidebarContainer>
   );
-}
+};
 
 export default Sidebar;

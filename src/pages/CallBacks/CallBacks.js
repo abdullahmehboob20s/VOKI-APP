@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import Footer from "layouts/Footer/Footer";
-import { Box, TextField } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
 import MyCustomSelect from "components/Selects/MyCustomSelect";
 import CustomDatePicker from "components/CustomDatePicker/CustomDatePicker";
 import MyCustomTextField from "components/TextField/MyCustomTextField";
-import whatsAppIcon from "assets/images/whatsapp-icon.svg";
 import phoneCallIcon from "assets/images/phonne-call-icon.svg";
 
 let BoxContainer = styled(Box)`
@@ -65,12 +64,8 @@ let TableData = styled.td`
   /* border: 2px solid red; */
 `;
 
-function CallBacks() {
-  const [expanded, setExpanded] = React.useState("");
-  const handleChange2 = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
-  };
-  let [agents, setAgents] = React.useState([
+const CallBacks = () => {
+  let agents = [
     {
       id: 1,
       name: "Valentin Tudose",
@@ -95,7 +90,7 @@ function CallBacks() {
       timeSlot: "16:00 - 18:00",
       date: "07-JAN-2021",
     },
-  ]);
+  ];
   const [names, setNames] = React.useState("All");
 
   const handleChange = (event) => {
@@ -153,6 +148,6 @@ function CallBacks() {
       </BoxContainer>
     </Box>
   );
-}
+};
 
 export default CallBacks;

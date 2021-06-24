@@ -13,7 +13,6 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
 
 let BoxContainer = styled(Box)`
   min-height: 100vh;
@@ -65,8 +64,8 @@ let CustomTableCell = styled(TableCell)`
   }
 `;
 
-function Reports() {
-  let [agents, setAgents] = React.useState([
+const Reports = () => {
+  let agents = [
     {
       id: 1,
       averageHandleTime: "10 minutes",
@@ -77,7 +76,7 @@ function Reports() {
       averageWaitingTime: "4 minutes",
       numberCallBacks: " 200 calls",
     },
-  ]);
+  ];
   const [names, setNames] = React.useState("All");
 
   const handleChange = (event) => {
@@ -155,6 +154,6 @@ function Reports() {
       </BoxContainer>
     </Box>
   );
-}
+};
 
 export default Reports;

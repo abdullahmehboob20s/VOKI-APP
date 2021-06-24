@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, TextField } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import styled from "styled-components";
 import defaultTheme from "theme/defaultTheme";
 import Footer from "layouts/Footer/Footer";
@@ -102,7 +102,7 @@ let TextFieldArea = styled.textarea`
   }
 `;
 
-function Phone() {
+const Phone = () => {
   return (
     <div>
       <BoxContainer>
@@ -246,6 +246,6 @@ function Phone() {
       </BoxContainer>
     </div>
   );
-}
+};
 
 export default Phone;

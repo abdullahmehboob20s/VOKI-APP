@@ -71,8 +71,8 @@ let CustomTab = styled(Tab)`
   }
 `;
 
-function Calls() {
-  let [agents, setAgents] = React.useState([
+const Calls = () => {
+  let agents = [
     {
       id: 1,
       name: "Valentin Tudose",
@@ -101,7 +101,7 @@ function Calls() {
       duration: "1 min",
       callThrough: "whatsapp",
     },
-  ]);
+  ];
   let [currentTab, setCurrentTab] = React.useState(0);
 
   let handleTabChange = (e, index) => {
@@ -152,7 +152,7 @@ function Calls() {
                     <TableData>{agent.reason}</TableData>
                     <TableData>{agent.duration}</TableData>
                     <TableData style={{ flex: 0.3, textAlign: "center" }}>
-                      {agent.callThrough == "whatsapp" ? (
+                      {agent.callThrough === "whatsapp" ? (
                         <img src={whatsAppIcon} alt="" />
                       ) : (
                         <img src={phoneCallIcon} alt="" />
@@ -171,6 +171,6 @@ function Calls() {
       <Footer />
     </BoxContainer>
   );
-}
+};
 
 export default Calls;

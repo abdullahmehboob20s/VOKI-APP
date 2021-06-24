@@ -18,7 +18,7 @@ let CustomSelect = styled(Select)`
 `;
 
 // AgentSelect (components)
-function AgentSelect() {
+const AgentSelect = () => {
   let [filter, setFilter] = React.useState({
     status: "All",
   });
@@ -45,6 +45,6 @@ function AgentSelect() {
       </CustomSelect>
     </CustomFormControl>
   );
-}
+};
 
 export default AgentSelect;

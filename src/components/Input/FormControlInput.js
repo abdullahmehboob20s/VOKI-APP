@@ -11,7 +11,7 @@ let StyledTextField = styled(InputBase)`
   border-radius: 4px;
   padding: 10px;
   height: 48px;
-  border: ${(props) => props.customBorder};
+  border: ${(props) => props.customborder};
 `;
 
 let CustomFormLabel = styled(FormLabel)`
@@ -22,7 +22,7 @@ let CustomFormLabel = styled(FormLabel)`
   margin-bottom: 8px;
 `;
 
-function FormControlInput(props) {
+const FormControlInput = (props) => {
   let {
     label = "label",
     type = "type",
@@ -49,7 +49,7 @@ function FormControlInput(props) {
         variant="outlined"
         type={type}
         onChange={onchange}
-        customBorder={error ? `1px solid ${red[500]}` : null}
+        customborder={error ? `1px solid ${red[500]}` : null}
         width={width}
       />
       {error ? (
@@ -57,6 +57,6 @@ function FormControlInput(props) {
       ) : null}
     </FormControl>
   );
-}
+};
 
 export default FormControlInput;

@@ -5,7 +5,7 @@ const TabPanel = (props) => {
   let { value, index } = props;
 
   return (
-    <Box display={value == index ? "block" : "none"}>{props.children}</Box>
+    <Box display={value === index ? "block" : "none"}>{props.children}</Box>
   );
 };
 

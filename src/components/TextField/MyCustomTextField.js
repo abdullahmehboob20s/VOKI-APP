@@ -6,9 +6,9 @@ let CustomTextField = styled(TextField)`
   flex: 1;
 `;
 
-function MyCustomTextField(props) {
+const MyCustomTextField = (props) => {
   let { placeholder } = props;
   return <CustomTextField label={placeholder} variant="outlined" />;
-}
+};
 
 export default MyCustomTextField;

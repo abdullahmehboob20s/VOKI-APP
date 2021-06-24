@@ -8,7 +8,7 @@ let Label = styled.label`
   margin: 0 1px;
 `;
 
-function StarRating() {
+const StarRating = () => {
   const [ratings, setRatings] = React.useState(null);
 
   return [...Array(5)].map((star, index) => {
@@ -19,6 +19,6 @@ function StarRating() {
       </Label>
     );
   });
-}
+};
 
 export default StarRating;

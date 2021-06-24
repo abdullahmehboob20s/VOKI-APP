@@ -19,7 +19,7 @@ let FooterSubtitle = styled.p`
   text-align: center;
 `;
 
-function Footer() {
+const Footer = () => {
   return (
     <Box>
       <FooterTitle>
@@ -29,6 +29,6 @@ function Footer() {
       <FooterSubtitle>Privacy Policy | Terms & Conditions</FooterSubtitle>
     </Box>
   );
-}
+};
 
 export default Footer;
