@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Footer from "layouts/Footer/Footer";
-import { Box } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
 import MyCustomSelect from "components/Selects/MyCustomSelect";
 import CustomDatePicker from "components/CustomDatePicker/CustomDatePicker";
@@ -107,7 +107,9 @@ const CallHistory = () => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <AgentTitle>Call History</AgentTitle>
+            <Typography variant="h1" color={defaultTheme.palette.textDarkColor}>
+              Call History
+            </Typography>
             <CustomDatePicker />
           </Box>
 

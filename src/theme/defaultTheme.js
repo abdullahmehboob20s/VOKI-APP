@@ -2,17 +2,55 @@ import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 const theme = createMuiTheme({
   typography: {
     fontFamily: ["Montserrat", "sans-serif"].join(","),
+    h1: {
+      fontWeight: "bold",
+      fontSize: "48px",
+      lineHeight: "59px",
+    },
+    h3: {
+      fontWeight: 500,
+      fontSize: "17px",
+    },
+    h4: {
+      fontWeight: "bold",
+      fontSize: "20px",
+      lineHeight: "24px",
+    },
     h5: {
+      fontWeight: 600,
+      fontSize: "22px",
+    },
+    h6: {
       fontSize: "30px",
       fontWeight: 500,
       lineHeight: "37px",
-      color: "#161C2F",
     },
-    h6: {
+    body1: {
       fontSize: "16px",
       fontWeight: 500,
       lineHeight: "20px",
-      color: "#161C2F",
+    },
+    body2: {
+      fontWeight: 500,
+      fontSize: "15px",
+      lineHeight: "18px",
+    },
+    caption: {
+      fontSize: "30px",
+      fontWeight: 500,
+    },
+    subtitle1: {
+      fontWeight: "bold",
+      fontSize: "32px",
+    },
+    subtitle2: {
+      fontWeight: 500,
+      fontSize: "18px",
+      lineHeight: "22px",
+    },
+    overline: {
+      fontWeight: 500,
+      fontSize: "24px",
     },
   },
   palette: {

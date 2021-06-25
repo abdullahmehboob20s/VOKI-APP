@@ -13,7 +13,7 @@ import { FiPhoneCall } from "react-icons/fi";
 import { AiOutlineHistory } from "react-icons/ai";
 import { VscCallIncoming } from "react-icons/vsc";
 import defaultTheme from "theme/defaultTheme";
-import { Box } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 
 let LogoSidebar = styled.a`
   width: 100%;
@@ -27,14 +27,6 @@ let LogoSidebar = styled.a`
     width: 180px;
     cursor: pointer;
   }
-`;
-let SidebarLogoutTitle = styled.p`
-  margin-bottom: 5px;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 24px;
-
-  color: ${defaultTheme.palette.textLightColor};
 `;
 let SidebarLogoutTitleBtn = styled.a`
   text-decoration: none;
@@ -78,14 +70,23 @@ const Sidebar = () => {
           <RiShieldUserLine />
         </Box>
         <Box>
-          <SidebarLogoutTitle>Super Admin</SidebarLogoutTitle>
-          <SidebarLogoutTitleBtn as={Link}>Log out</SidebarLogoutTitleBtn>
+          <Box mb="5px">
+            <Typography
+              variant="h4"
+              color={defaultTheme.palette.textLightColor}
+            >
+              Super Admin
+            </Typography>
+          </Box>
+          <SidebarLogoutTitleBtn as={Link} to="/">
+            Log out
+          </SidebarLogoutTitleBtn>
         </Box>
       </Box>
 
       {/*  */}
 
-      <div className="SidebarLinks">
+      <Box>
         <SidebarNavLink
           icon={<RiCustomerService2Line />}
           title="Agents"
@@ -112,7 +113,7 @@ const Sidebar = () => {
           title="Reports"
           to="/agents/Reports"
         />
-      </div>
+      </Box>
 
       {/*  */}
     </SidebarContainer>

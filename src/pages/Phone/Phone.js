@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import styled from "styled-components";
 import defaultTheme from "theme/defaultTheme";
 import Footer from "layouts/Footer/Footer";
@@ -17,9 +17,6 @@ let BoxContainer = styled(Box)`
   /* border: 2px solid red; */
 `;
 let PhoneFooter = styled.p`
-  font-weight: 500;
-  font-size: 17px;
-  color: ${defaultTheme.palette.textBoldColor};
   text-align: center;
 `;
 let PhoneTitle = styled.p`
@@ -29,11 +26,7 @@ let PhoneTitle = styled.p`
   text-align: center;
   color: ${defaultTheme.palette.textDarkColor};
 `;
-let PhoneCallTimer = styled.p`
-  font-weight: bold;
-  font-size: 32px;
-  color: ${defaultTheme.palette.textBoldColor};
-`;
+let PhoneCallTimer = styled.p``;
 let PhoneTitleHeading = styled.p`
   font-weight: ${(props) => props.fontweight};
   font-size: ${(props) => props.fontsize};
@@ -109,9 +102,12 @@ const Phone = () => {
         <Box flex="1" display="flex" mb="100px">
           <Box flex="1" mr="50px">
             <Box height="90px" display="flex" alignItems="flex-start">
-              <PhoneTitleHeading fontsize="48px" fontweight="bold">
+              <Typography
+                variant="h1"
+                color={defaultTheme.palette.textDarkColor}
+              >
                 Phone
-              </PhoneTitleHeading>
+              </Typography>
             </Box>
             <Box
               bgcolor="white"
@@ -130,11 +126,16 @@ const Phone = () => {
                 alignItems="center"
                 mb="50px"
               >
-                <PhoneTitle>James Bond</PhoneTitle>
+                <Typography variant="caption">James Bond</Typography>
                 <Box mt="32px" mb="32px">
                   <img src={phoneCallImage} alt="" />
                 </Box>
-                <PhoneCallTimer>00:01</PhoneCallTimer>
+                <Typography
+                  color={defaultTheme.palette.textBoldColor}
+                  variant="subtitle1"
+                >
+                  00:01
+                </Typography>
 
                 <Box display="flex" alignItems="center" mt="32px">
                   <Box
@@ -175,9 +176,14 @@ const Phone = () => {
                 padding="20px 0"
                 margin="0 54px"
               >
-                <PhoneFooter>
-                  Reason: I want to clear my bank account.
-                </PhoneFooter>
+                <Box textAlign="center">
+                  <Typography
+                    variant="h3"
+                    color={defaultTheme.palette.textBoldColor}
+                  >
+                    Reason: I want to clear my bank account.
+                  </Typography>
+                </Box>
               </Box>
             </Box>
           </Box>
@@ -185,31 +191,45 @@ const Phone = () => {
           {/*  */}
           <Box flex="1" height="200px">
             <Box height="90px" display="flex" alignItems="flex-start">
-              <PhoneTitleHeading fontsize="30px" fontweight="500">
+              <Typography
+                variant="caption"
+                color={defaultTheme.palette.textDarkColor}
+              >
                 Notes
-              </PhoneTitleHeading>
+              </Typography>
             </Box>
 
             {/*  */}
             <Box>
               <CardBox>
-                <CardTitle>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Corrupti quae unde nostrum quam ab maiores laudantium eveniet
-                </CardTitle>
+                <Box width="70%" mb="30px">
+                  <Typography
+                    variant="subtitle2"
+                    color={defaultTheme.palette.textBoldColor}
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Corrupti quae unde nostrum quam ab maiores laudantium
+                    eveniet
+                  </Typography>
+                </Box>
                 <CardTopRightText>
                   15:30:00 <br /> 28-OCT-2021
                 </CardTopRightText>
                 <CardBottomRightText>John Downdall</CardBottomRightText>
               </CardBox>
               <CardBox>
-                <CardTitle>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Laudantium sapiente quo aliquam asperiores voluptatem, sit
-                  mollitia eos officia doloremque, nihil molestiae numquam quia
-                  dolorum. Magnam quaerat suscipit voluptas earum repellendus,
-                  ut
-                </CardTitle>
+                <Box width="70%" mb="30px">
+                  <Typography
+                    variant="subtitle2"
+                    color={defaultTheme.palette.textBoldColor}
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Laudantium sapiente quo aliquam asperiores voluptatem, sit
+                    mollitia eos officia doloremque, nihil molestiae numquam
+                    quia dolorum. Magnam quaerat suscipit voluptas earum
+                    repellendus, ut
+                  </Typography>
+                </Box>
                 <CardTopRightText>
                   15:30:00 <br /> 28-OCT-2021
                 </CardTopRightText>

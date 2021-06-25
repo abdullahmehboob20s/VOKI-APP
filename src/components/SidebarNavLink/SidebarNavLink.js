@@ -1,8 +1,8 @@
-import { Box } from "@material-ui/core";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import defaultTheme from "theme/defaultTheme";
+import { Box, Typography } from "@material-ui/core";
 
 let SidebarLinkIcon = styled.div`
   font-size: 27px;
@@ -36,9 +36,14 @@ const SidebarNavLink = (props) => {
   let { icon, to, title } = props;
   return (
     <SideBarLink as={NavLink} exact activeClassName="SideBarLinkActive" to={to}>
-      <Box display=" flex" justifyContent="flex-start" width="70%">
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="flex-start"
+        width="70%"
+      >
         <SidebarLinkIcon>{icon}</SidebarLinkIcon>
-        <SidebarLinkLabel>{title}</SidebarLinkLabel>
+        <Typography variant="h5">{title}</Typography>
       </Box>
     </SideBarLink>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Footer from "layouts/Footer/Footer";
-import { Box, Tabs, Tab } from "@material-ui/core";
+import { Box, Tabs, Tab, Typography } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
 import whatsAppIcon from "assets/images/whatsapp-icon.svg";
 import phoneCallIcon from "assets/images/phonne-call-icon.svg";
@@ -112,7 +112,10 @@ const Calls = () => {
     <BoxContainer>
       <Box flex="1">
         <Box display="flex" justifyContent="space-between" alignItems="center">
-          <AgentTitle>Calls</AgentTitle>
+          <Typography variant="h1" color={defaultTheme.palette.textDarkColor}>
+            Calls
+          </Typography>
+          {/* <AgentTitle>Calls</AgentTitle> */}
           <Box>
             <Tabs
               value={currentTab}

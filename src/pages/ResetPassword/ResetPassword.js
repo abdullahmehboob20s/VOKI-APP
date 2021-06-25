@@ -15,7 +15,7 @@ import defaultTheme from "theme/defaultTheme";
 
 // styled-components
 import styled from "styled-components";
-import { Box } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 
 // Styling
 
@@ -65,21 +65,6 @@ let FormContainer = styled.form`
 let FormContainerWrapper = styled.form`
   width: 90%;
   max-width: 342px;
-`;
-let ContainerFormLabel = styled.p`
-  font-style: normal;
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 18px;
-  color: ${defaultTheme.palette.formLabelColor};
-  margin-bottom: 24px;
-`;
-let ContainerFormTitle = styled.p`
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 37px;
-  color: ${defaultTheme.palette.textDarkColor};
-  margin-bottom: 8px;
 `;
 
 const Login = () => {
@@ -155,10 +140,17 @@ const Login = () => {
         {/* FormContainerWrapper */}
         <FormContainerWrapper>
           {/* Titles */}
-          <ContainerFormTitle>Reset your Password</ContainerFormTitle>
-          <ContainerFormLabel>
+          <Box mb="8px">
+            <Typography color={defaultTheme.palette.textDarkColor} variant="h6">
+              Reset your Password
+            </Typography>
+          </Box>
+          <Typography
+            color={defaultTheme.palette.formLabelColor}
+            variant="body2"
+          >
             Please enter your new password
-          </ContainerFormLabel>
+          </Typography>
 
           {/* FormContainer */}
           <FormContainer>

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Footer from "layouts/Footer/Footer";
-import { Box } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
 import MyCustomSelect from "components/Selects/MyCustomSelect";
 import CustomDatePicker from "components/CustomDatePicker/CustomDatePicker";
@@ -106,7 +106,10 @@ const CallBacks = () => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <AgentTitle>CallBacks</AgentTitle>
+            <Typography variant="h1" color={defaultTheme.palette.textDarkColor}>
+              CallBacks
+            </Typography>
+            {/* <AgentTitle>CallBacks</AgentTitle> */}
             <CustomDatePicker />
           </Box>
 

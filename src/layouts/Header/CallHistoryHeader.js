@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CallIcon from "assets/images/call-icon.svg";
-import { Box } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
 
 let CallHeaderTitle = styled.p`
@@ -36,9 +36,16 @@ const CallHistoryHeader = () => {
       bgcolor={defaultTheme.palette.headerBackColor}
       padding="15px 60px"
     >
-      <CallHeaderTitle>Valentin Tudose</CallHeaderTitle>
+      <Typography color={defaultTheme.palette.textBoldColor} variant="body1">
+        Valentin Tudose
+      </Typography>
       <Box display="flex" alignItems="center">
-        <CallTimer>00:01</CallTimer>
+        <Typography
+          variant="overline"
+          color={defaultTheme.palette.textBoldColor}
+        >
+          00:01
+        </Typography>
         <CallIconWrapper>
           <img src={CallIcon} alt="" />
         </CallIconWrapper>

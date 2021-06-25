@@ -5,7 +5,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import Footer from "layouts/Footer/Footer";
 import ReturningIcon from "components/ReturningIcon/ReturningIcon";
 import FormButtom from "components/Button/FormButton";
-import { Box, Button, Dialog } from "@material-ui/core";
+import { Box, Dialog, Typography } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
 import { useHistory } from "react-router-dom";
 import { useRouteMatch } from "react-router-dom";
@@ -18,13 +18,6 @@ let BoxContainer = styled(Box)`
   padding: 50px 60px;
   background-color: ${defaultTheme.palette.bgLightColor};
   /* border: 2px solid red; */
-`;
-let AgentTitle = styled.p`
-  font-style: normal;
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 59px;
-  color: ${defaultTheme.palette.textDarkColor};
 `;
 let TableContainer = styled.table`
   width: 100%;
@@ -127,7 +120,9 @@ const AgentPage = (props) => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <AgentTitle>Agents</AgentTitle>
+            <Typography variant="h1" color={defaultTheme.palette.textDarkColor}>
+              Agents
+            </Typography>
             <Box>
               <AgentSelect />
             </Box>
@@ -138,8 +133,18 @@ const AgentPage = (props) => {
               <DialogHeading>Delete Agent</DialogHeading>
               <DialogDisc>Are you sure you wanna delete this agent?</DialogDisc>
               <DialogBtns>
-                <DailogBtn title="No"  border={true} mr="10px" click={() => setOpen(false)} />
-                <DailogBtn title="Yes" border={false} mr="0px" click={() => setOpen(false)} />
+                <DailogBtn
+                  title="No"
+                  border={true}
+                  mr="10px"
+                  click={() => setOpen(false)}
+                />
+                <DailogBtn
+                  title="Yes"
+                  border={false}
+                  mr="0px"
+                  click={() => setOpen(false)}
+                />
               </DialogBtns>
             </CustomBox>
           </Dialog>

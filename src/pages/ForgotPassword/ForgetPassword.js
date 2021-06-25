@@ -11,7 +11,7 @@ import Footer from "layouts/Footer/Footer";
 import styled from "styled-components";
 
 import defaultTheme from "theme/defaultTheme";
-import { Box } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 
 // Styling
 
@@ -60,21 +60,6 @@ let FormContainer = styled.form`
 let FormContainerWrapper = styled.form`
   width: 90%;
   max-width: 342px;
-`;
-let ContainerFormLabel = styled.p`
-  font-style: normal;
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 18px;
-  color: ${defaultTheme.palette.formLabelColor};
-  margin-bottom: 24px;
-`;
-let ContainerFormTitle = styled.p`
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 37px;
-  color: ${defaultTheme.palette.textDarkColor};
-  margin-bottom: 8px;
 `;
 
 const ForgetPassword = () => {
@@ -132,11 +117,18 @@ const ForgetPassword = () => {
         {/* FormContainerWrapper */}
         <FormContainerWrapper>
           {/* Titles */}
-          <ContainerFormTitle>Forget your Password</ContainerFormTitle>
-          <ContainerFormLabel>
+          <Box mb="8px">
+            <Typography color={defaultTheme.palette.textDarkColor} variant="h6">
+              Forget your Password
+            </Typography>
+          </Box>
+          <Typography
+            variant="body2"
+            color={defaultTheme.palette.formLabelColor}
+          >
             Please enter your email address so we can send you a link to reset
             your password
-          </ContainerFormLabel>
+          </Typography>
 
           {/* FormContainer */}
           <FormContainer>
