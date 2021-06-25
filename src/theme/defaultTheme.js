@@ -1,6 +1,20 @@
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
-
 const theme = createMuiTheme({
+  typography: {
+    fontFamily: ["Montserrat", "sans-serif"].join(","),
+    h5: {
+      fontSize: "30px",
+      fontWeight: 500,
+      lineHeight: "37px",
+      color: "#161C2F",
+    },
+    h6: {
+      fontSize: "16px",
+      fontWeight: 500,
+      lineHeight: "20px",
+      color: "#161C2F",
+    },
+  },
   palette: {
     whiteColor: "#ffffff",
     borderColor: "#B3B8BC",
@@ -17,7 +31,7 @@ const theme = createMuiTheme({
     lightBlueColor: "rgba(22, 28, 47, 0.75)",
     tabIndicatorColor: "#0874F0",
     tabBackgroundColor: "#EAF0F4",
-    headerBackColor : "#14C59C",
+    headerBackColor: "#14C59C",
   },
 });
 

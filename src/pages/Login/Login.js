@@ -15,7 +15,7 @@ import Footer from "layouts/Footer/Footer";
 import styled from "styled-components";
 
 // @material-ui/core"
-import { Box, Checkbox } from "@material-ui/core";
+import { Box, Checkbox, Typography } from "@material-ui/core";
 
 import defaultTheme from "theme/defaultTheme";
 
@@ -68,18 +68,22 @@ let FormContainerWrapper = styled.form`
   width: 90%;
   max-width: 342px;
 `;
-let ContainerFormLabel = styled.p`
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  color: ${defaultTheme.palette.textDarkColor};
-  margin-bottom: 8px;
+let ContainerFormLabel = styled(Typography)`
+  &&& {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: ${defaultTheme.palette.textDarkColor};
+    margin-bottom: 8px;
+  }
 `;
-let ContainerFormTitle = styled.p`
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 37px;
-  color: ${defaultTheme.palette.textDarkColor};
+let ContainerFormTitle = styled(Typography)`
+  &&& {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 37px;
+    color: ${defaultTheme.palette.textDarkColor};
+  }
 `;
 let CheckBoxLabel = styled.label`
   font-weight: 500;
@@ -170,8 +174,10 @@ const Login = () => {
         {/* FormContainerWrapper */}
         <FormContainerWrapper>
           {/* Titles */}
-          <ContainerFormLabel>Welcome to Voki</ContainerFormLabel>
-          <ContainerFormTitle>Login to your Account</ContainerFormTitle>
+          <Box mb="8px">
+            <Typography variant="h6">Welcome to Voki</Typography>
+          </Box>
+          <Typography variant="h5">Login to your Account</Typography>
 
           {/* FormContainer */}
           <FormContainer>
