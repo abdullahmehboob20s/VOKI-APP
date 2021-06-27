@@ -7,21 +7,6 @@ import whatsAppIcon from "assets/images/whatsapp-icon.svg";
 import phoneCallIcon from "assets/images/phonne-call-icon.svg";
 import TabPanel from "components/TabPanel/TabPanel";
 
-let BoxContainer = styled(Box)`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 50px 60px;
-  background-color: ${defaultTheme.palette.bgLightColor};
-  /* border: 2px solid red; */
-`;
-let AgentTitle = styled.p`
-  font-style: normal;
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 59px;
-  color: ${defaultTheme.palette.textDarkColor};
-`;
 let TableContainer = styled.table`
   width: 100%;
   text-align: left;
@@ -109,13 +94,18 @@ const Calls = () => {
   };
 
   return (
-    <BoxContainer>
+    <Box
+      minHeight="100"
+      display="flex"
+      flexDirection="column"
+      py={6.25}
+      px={7.5}
+    >
       <Box flex="1">
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Typography variant="h1" color={defaultTheme.palette.textDarkColor}>
             Calls
           </Typography>
-          {/* <AgentTitle>Calls</AgentTitle> */}
           <Box>
             <Tabs
               value={currentTab}
@@ -172,7 +162,7 @@ const Calls = () => {
         </Box>
       </Box>
       <Footer />
-    </BoxContainer>
+    </Box>
   );
 };
 

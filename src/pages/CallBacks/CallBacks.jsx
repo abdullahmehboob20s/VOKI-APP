@@ -8,21 +8,6 @@ import CustomDatePicker from "components/CustomDatePicker/CustomDatePicker";
 import MyCustomTextField from "components/TextField/MyCustomTextField";
 import phoneCallIcon from "assets/images/phonne-call-icon.svg";
 
-let BoxContainer = styled(Box)`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 50px 60px;
-
-  /* border: 2px solid red; */
-`;
-let AgentTitle = styled.p`
-  font-style: normal;
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 59px;
-  color: ${defaultTheme.palette.textDarkColor};
-`;
 let TableContainer = styled.table`
   width: 100%;
   text-align: left;
@@ -45,7 +30,6 @@ let TableRow = styled.tr`
   background-color: ${defaultTheme.palette.whiteColor};
   align-items: center;
   padding: 21px 24px;
-  /* border: 2px solid red; */
 `;
 let TableHeading = styled.th`
   flex: ${(props) => props.textAlign || "1"};
@@ -61,7 +45,6 @@ let TableData = styled.td`
   font-weight: 500;
   font-size: 16px;
   color: ${defaultTheme.palette.textBoldColor};
-  /* border: 2px solid red; */
 `;
 
 const CallBacks = () => {
@@ -99,7 +82,13 @@ const CallBacks = () => {
 
   return (
     <Box bgcolor={defaultTheme.palette.bgLightColor}>
-      <BoxContainer>
+      <Box
+        minHeight="100"
+        display="flex"
+        flexDirection="column"
+        py={6.25}
+        px={7.5}
+      >
         <Box flex="1" mb="100px">
           <Box
             display="flex"
@@ -109,7 +98,6 @@ const CallBacks = () => {
             <Typography variant="h1" color={defaultTheme.palette.textDarkColor}>
               CallBacks
             </Typography>
-            {/* <AgentTitle>CallBacks</AgentTitle> */}
             <CustomDatePicker />
           </Box>
 
@@ -118,7 +106,6 @@ const CallBacks = () => {
             <MyCustomSelect names={names} func={handleChange} />
           </Box>
 
-          {/* ============================================= */}
           <Box mt="38px" mb="100px">
             <TableContainer as="table">
               <thead>
@@ -145,10 +132,9 @@ const CallBacks = () => {
               </tbody>
             </TableContainer>
           </Box>
-          {/* ============================================= */}
         </Box>
         <Footer />
-      </BoxContainer>
+      </Box>
     </Box>
   );
 };

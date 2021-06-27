@@ -6,7 +6,6 @@ import defaultTheme from "theme/defaultTheme";
 import MyCustomSelect from "components/Selects/MyCustomSelect";
 import CustomDatePicker from "components/CustomDatePicker/CustomDatePicker";
 import StartRating from "components/Ratings/StarRating";
-
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -14,19 +13,6 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 
-let BoxContainer = styled(Box)`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 50px 60px;
-`;
-let AgentTitle = styled.p`
-  font-style: normal;
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 59px;
-  color: ${defaultTheme.palette.textDarkColor};
-`;
 let TableHeading = styled.th`
   flex: ${(props) => props.textAlign || "1"};
   text-align: ${(props) => props.textAlign || "left"};
@@ -85,7 +71,13 @@ const Reports = () => {
 
   return (
     <Box bgcolor={defaultTheme.palette.bgLightColor}>
-      <BoxContainer>
+      <Box
+        minHeight="100"
+        display="flex"
+        flexDirection="column"
+        py={6.25}
+        px={7.5}
+      >
         <Box flex="1" mb="100px">
           <Box
             display="flex"
@@ -95,7 +87,6 @@ const Reports = () => {
             <Typography variant="h1" color={defaultTheme.palette.textDarkColor}>
               Reports
             </Typography>
-            {/* <AgentTitle>Reports</AgentTitle> */}
             <CustomDatePicker />
           </Box>
 
@@ -114,7 +105,6 @@ const Reports = () => {
             <MyCustomSelect names={names} func={handleChange} />
           </Box>
 
-          {/* ============================================= */}
           <Box mt="38px">
             <CustomTableContainer>
               <Table>
@@ -151,10 +141,9 @@ const Reports = () => {
               </Table>
             </CustomTableContainer>
           </Box>
-          {/* ============================================= */}
         </Box>
         <Footer />
-      </BoxContainer>
+      </Box>
     </Box>
   );
 };

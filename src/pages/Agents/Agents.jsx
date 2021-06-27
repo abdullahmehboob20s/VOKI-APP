@@ -11,14 +11,6 @@ import { useHistory } from "react-router-dom";
 import { useRouteMatch } from "react-router-dom";
 import DailogBtn from "components/Button/DailogBtn";
 
-let BoxContainer = styled(Box)`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 50px 60px;
-  background-color: ${defaultTheme.palette.bgLightColor};
-  /* border: 2px solid red; */
-`;
 let TableContainer = styled.table`
   width: 100%;
   text-align: left;
@@ -54,31 +46,6 @@ let TableData = styled.td`
   font-size: 16px;
   color: ${defaultTheme.palette.textBoldColor};
 `;
-let CustomBox = styled(Box)`
-  width: 580px;
-  height: 262px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
-let DialogHeading = styled.p`
-  font-weight: bold;
-  font-size: 24px;
-  color: ${defaultTheme.palette.textBoldColor};
-  margin-bottom: 15px;
-`;
-let DialogDisc = styled.p`
-  font-weight: 500;
-  font-size: 18px;
-  color: ${defaultTheme.palette.textBoldColor};
-  margin-bottom: 15px;
-`;
-let DialogBtns = styled.div`
-  width: 80%;
-  display: flex;
-`;
-
 const AgentPage = (props) => {
   let { path } = useRouteMatch();
   let history = useHistory();
@@ -113,7 +80,14 @@ const AgentPage = (props) => {
 
   return (
     <>
-      <BoxContainer>
+      <Box
+        minHeight="100vh"
+        display="flex"
+        flexDirection="column"
+        py="50px"
+        px="60px"
+        bgcolor={defaultTheme.palette.bgLightColor}
+      >
         <Box flex="1">
           <Box
             display="flex"
@@ -129,10 +103,22 @@ const AgentPage = (props) => {
           </Box>
 
           <Dialog open={open} onClose={handleClose}>
-            <CustomBox>
-              <DialogHeading>Delete Agent</DialogHeading>
-              <DialogDisc>Are you sure you wanna delete this agent?</DialogDisc>
-              <DialogBtns>
+            <Box
+              width={580}
+              height={262}
+              display="flex"
+              justifyContent="center"
+              flexDirection="column"
+            >
+              <Box mb={2} textAlign="center">
+                <Typography variant="h4">Delete Agent</Typography>
+              </Box>
+              <Box mb={2} textAlign="center">
+                <Typography variant="subtitle2">
+                  Are you sure you wanna delete this agent?
+                </Typography>
+              </Box>
+              <Box display="flex" px={5}>
                 <DailogBtn
                   title="No"
                   border={true}
@@ -145,11 +131,11 @@ const AgentPage = (props) => {
                   mr="0px"
                   click={() => setOpen(false)}
                 />
-              </DialogBtns>
-            </CustomBox>
+              </Box>
+            </Box>
           </Dialog>
 
-          <Box mt="38px">
+          <Box mt={5}>
             <TableContainer as="table">
               <thead>
                 <TableRow>
@@ -197,7 +183,7 @@ const AgentPage = (props) => {
           </Box>
         </Box>
         <Footer />
-      </BoxContainer>
+      </Box>
     </>
   );
 };

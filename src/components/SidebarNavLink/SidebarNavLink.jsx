@@ -19,17 +19,12 @@ let SideBarLink = styled.a`
   background-color: transparent;
   text-decoration: none;
   color: white;
-  /* border: 2px solid blue; */
   margin-bottom: 10px;
 
   &.SideBarLinkActive {
     background-color: ${defaultTheme.palette.bgLightColor};
     color: ${defaultTheme.palette.textDarkColor};
   }
-`;
-let SidebarLinkLabel = styled.p`
-  font-weight: 600;
-  font-size: 22px;
 `;
 
 const SidebarNavLink = (props) => {

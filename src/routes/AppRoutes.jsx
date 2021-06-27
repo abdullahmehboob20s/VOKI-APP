@@ -1,12 +1,8 @@
 import React from "react";
 import Sidebar from "layouts/Sidebar/Sidebar";
 import { createGlobalStyle } from "styled-components";
-
-// react-router-dom
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "theme/defaultTheme";
-
-// Pages
 import Login from "pages/Login/Login";
 import ForgetPassword from "pages/ForgotPassword/ForgetPassword";
 import ResetPassword from "pages/ResetPassword/ResetPassword";
@@ -18,8 +14,6 @@ import Phone from "pages/Phone/Phone";
 import Reports from "pages/Reports/Reports";
 import CreateAgentPage from "pages/Agents/CreateAgentPage";
 import AgentPasswordChange from "pages/Agents/AgentPasswordChange";
-
-// material-ui (imports)
 import { Box } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core";
 
@@ -45,7 +39,6 @@ const AppRoutes = () => {
             component={ForgetPassword}
           />
           <Route path="/agents/resetpassword" exact component={ResetPassword} />
-          {/*  */}
 
           <Box position="relative">
             <Sidebar />
@@ -68,8 +61,6 @@ const AppRoutes = () => {
               <Route path="/agents/Reports" exact component={Reports} />
             </Box>
           </Box>
-
-          {/*  */}
         </Switch>
       </Router>
     </ThemeProvider>

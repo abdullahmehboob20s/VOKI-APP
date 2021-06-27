@@ -1,39 +1,13 @@
 import React from "react";
-
-// logo
 import logo from "assets/images/logo.svg";
-
-// react-router-dom
 import { Link, useHistory } from "react-router-dom";
-
-// components
 import FormControlInput from "components/Input/FormControlInput";
 import FormButton from "components/Button/FormButton";
 import Footer from "layouts/Footer/Footer";
-
-// styled-components
 import styled from "styled-components";
-
-// @material-ui/core"
 import { Box, Checkbox, Typography } from "@material-ui/core";
-
 import defaultTheme from "theme/defaultTheme";
 
-// Styling
-
-let MainContainer = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  background: ${defaultTheme.palette.bgLightColor};
-  padding: 30px 0;
-
-  @media (max-width: 500px) {
-    min-height: 700px;
-    /* border: 2px solid red; */
-  }
-`;
 let Logo = styled.a`
   display: block;
   position: absolute;
@@ -67,23 +41,6 @@ let FormContainer = styled.form`
 let FormContainerWrapper = styled.form`
   width: 90%;
   max-width: 342px;
-`;
-let ContainerFormLabel = styled(Typography)`
-  &&& {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-    color: ${defaultTheme.palette.textDarkColor};
-    margin-bottom: 8px;
-  }
-`;
-let ContainerFormTitle = styled(Typography)`
-  &&& {
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 37px;
-    color: ${defaultTheme.palette.textDarkColor};
-  }
 `;
 let CheckBoxLabel = styled.label`
   font-weight: 500;
@@ -127,8 +84,6 @@ const Login = () => {
   };
 
   let formSubmit = () => {
-    // HAVE TO UNCOMMENT LATER ======================================
-
     if (!data.email || !data.password) {
       seterrorMsg({
         password: {
@@ -159,8 +114,15 @@ const Login = () => {
   };
 
   return (
-    <MainContainer>
-      {/* Logo */}
+    <Box
+      minHeight="100vh"
+      display="flex"
+      flexDirection="column"
+      position="relative"
+      bgcolor={defaultTheme.palette.bgLightColor}
+      py={3.75}
+      px={0}
+    >
       <Logo as={Link} to="/">
         <img src={logo} alt="" />
       </Logo>
@@ -171,9 +133,7 @@ const Login = () => {
         alignItems="center"
         flexDirection="column"
       >
-        {/* FormContainerWrapper */}
         <FormContainerWrapper>
-          {/* Titles */}
           <Box mb="8px">
             <Typography
               color={defaultTheme.palette.textDarkColor}
@@ -186,10 +146,8 @@ const Login = () => {
             Login to your Account
           </Typography>
 
-          {/* FormContainer */}
           <FormContainer>
             <Box>
-              {/* FormControlInput */}
               <FormControlInput
                 value={data.email}
                 error={errorMsg.email.status}
@@ -233,13 +191,13 @@ const Login = () => {
               type="submit"
               title="LOG IN"
               onPress={formSubmit}
+              width="100%"
             ></FormButton>
           </FormContainer>
         </FormContainerWrapper>
       </Box>
-      {/* Footer */}
       <Footer />
-    </MainContainer>
+    </Box>
   );
 };
 

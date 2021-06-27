@@ -9,21 +9,6 @@ import MyCustomTextField from "components/TextField/MyCustomTextField";
 import TableAccordion from "components/Accordion/TableAccordion";
 import CallHistoryHeader from "layouts/Header/CallHistoryHeader";
 
-let BoxContainer = styled(Box)`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 50px 60px;
-
-  /* border: 2px solid red; */
-`;
-let AgentTitle = styled.p`
-  font-style: normal;
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 59px;
-  color: ${defaultTheme.palette.textDarkColor};
-`;
 let TableContainer = styled.table`
   width: 100%;
   text-align: left;
@@ -97,10 +82,15 @@ const CallHistory = () => {
 
   return (
     <Box bgcolor={defaultTheme.palette.bgLightColor}>
-      {/* Calling Header */}
       <CallHistoryHeader />
 
-      <BoxContainer>
+      <Box
+        minHeight="100"
+        display="flex"
+        flexDirection="column"
+        py={6.25}
+        px={7.5}
+      >
         <Box flex="1" mb="100px">
           <Box
             display="flex"
@@ -149,7 +139,7 @@ const CallHistory = () => {
           </Box>
         </Box>
         <Footer />
-      </BoxContainer>
+      </Box>
     </Box>
   );
 };

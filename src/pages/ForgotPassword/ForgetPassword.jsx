@@ -1,33 +1,13 @@
 import React from "react";
-// logo
 import logo from "assets/images/logo.svg";
-// react-router-dom
 import { Link, useHistory } from "react-router-dom";
-// components
 import FormControlInput from "components/Input/FormControlInput";
 import FormButton from "components/Button/FormButton";
 import Footer from "layouts/Footer/Footer";
-// styled-components
 import styled from "styled-components";
-
 import defaultTheme from "theme/defaultTheme";
 import { Box, Typography } from "@material-ui/core";
 
-// Styling
-
-let MainContainer = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  background: ${defaultTheme.palette.bgLightColor};
-  padding: 30px 0;
-
-  @media (max-width: 500px) {
-    min-height: 700px;
-    /* border: 2px solid red; */
-  }
-`;
 let Logo = styled.a`
   display: block;
   position: absolute;
@@ -102,8 +82,15 @@ const ForgetPassword = () => {
   };
 
   return (
-    <MainContainer>
-      {/* Logo */}
+    <Box
+      minHeight="100vh"
+      display="flex"
+      flexDirection="column"
+      position="relative"
+      bgcolor={defaultTheme.palette.bgLightColor}
+      py={3.75}
+      px={0}
+    >
       <Logo as={Link} to="/">
         <img src={logo} alt="" />
       </Logo>
@@ -114,9 +101,7 @@ const ForgetPassword = () => {
         alignItems="center"
         flexDirection="column"
       >
-        {/* FormContainerWrapper */}
         <FormContainerWrapper>
-          {/* Titles */}
           <Box mb="8px">
             <Typography color={defaultTheme.palette.textDarkColor} variant="h6">
               Forget your Password
@@ -130,10 +115,8 @@ const ForgetPassword = () => {
             your password
           </Typography>
 
-          {/* FormContainer */}
           <FormContainer>
             <Box>
-              {/* FormControlInput */}
               <FormControlInput
                 value={data.email}
                 type="email"
@@ -148,13 +131,16 @@ const ForgetPassword = () => {
               />
             </Box>
 
-            <FormButton title="Reset Password" onPress={formSubmit} />
+            <FormButton
+              title="Reset Password"
+              width="100%"
+              onPress={formSubmit}
+            />
           </FormContainer>
         </FormContainerWrapper>
       </Box>
-      {/* Footer */}
       <Footer />
-    </MainContainer>
+    </Box>
   );
 };
 

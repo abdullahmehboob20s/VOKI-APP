@@ -3,14 +3,11 @@ import styled from "styled-components";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
-
 import { IoIosArrowDown } from "react-icons/io";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiPhone } from "react-icons/bi";
-
 import { Box } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
-
 import StarRating from "components/Ratings/StarRating";
 
 let TableRow = styled.tr`
@@ -20,10 +17,8 @@ let TableRow = styled.tr`
   align-items: center;
   padding: 21px 24px;
 `;
-
 let TableData = styled.td`
   flex: 1;
-  font-family: Montserrat;
   font-weight: 500;
   font-size: 16px;
   color: ${defaultTheme.palette.textBoldColor};
@@ -64,7 +59,6 @@ let AccordionDetailDisc2 = styled.p`
 
 const TableAccordion = (props) => {
   let { agent, handleChange2, expanded } = props;
-
   return (
     <Accordion
       square
@@ -72,7 +66,6 @@ const TableAccordion = (props) => {
       onChange={handleChange2(agent.panel)}
     >
       <CustomAccordionSummary>
-        {/* TableRow */}
         <TableRow>
           <TableData>{agent.name}</TableData>
           <TableData>{agent.date}</TableData>
@@ -92,12 +85,7 @@ const TableAccordion = (props) => {
         </TableRow>
       </CustomAccordionSummary>
       <CustomAccordionDetails>
-        <Box
-          width="100%"
-          justifyContent="space-between"
-          display="flex"
-          mb="30px"
-        >
+        <Box width="100%" justifyContent="space-between" display="flex" mb={4}>
           <Box>
             <AccordionDetailTitle>Reason</AccordionDetailTitle>
             <AccordionDetailDisc>
@@ -131,8 +119,9 @@ const TableAccordion = (props) => {
             alignItems="center"
             justifyContent="space-between"
             bgcolor={defaultTheme.palette.bgLightColor}
-            padding="13px 25px"
             mb="17px"
+            px={3}
+            py={1.5}
           >
             <AccordionDetailDisc2>
               I need to dig to get more information
@@ -144,8 +133,9 @@ const TableAccordion = (props) => {
             alignItems="center"
             justifyContent="space-between"
             bgcolor={defaultTheme.palette.bgLightColor}
-            padding="13px 25px"
             mb="17px"
+            px={3}
+            py={1.5}
           >
             <AccordionDetailDisc2>
               I need to dig to get more information
@@ -157,8 +147,9 @@ const TableAccordion = (props) => {
             alignItems="center"
             justifyContent="space-between"
             bgcolor={defaultTheme.palette.bgLightColor}
-            padding="13px 25px"
             mb="17px"
+            px={3}
+            py={1.5}
           >
             <AccordionDetailDisc2>
               I need to dig to get more information

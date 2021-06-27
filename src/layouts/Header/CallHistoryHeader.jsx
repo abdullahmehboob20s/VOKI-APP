@@ -1,31 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import CallIcon from "assets/images/call-icon.svg";
 import { Box, Typography } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
-
-let CallHeaderTitle = styled.p`
-  font-family: Montserrat;
-  font-weight: 600;
-  font-size: 18px;
-  color: ${defaultTheme.palette.textBoldColor};
-`;
-let CallTimer = styled.p`
-  font-weight: 500;
-  font-size: 24px;
-  color: ${defaultTheme.palette.textBoldColor};
-`;
-let CallIconWrapper = styled(Box)`
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: ${defaultTheme.palette.redBgColor};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  margin-left: 20px;
-`;
 
 const CallHistoryHeader = () => {
   return (
@@ -46,9 +22,19 @@ const CallHistoryHeader = () => {
         >
           00:01
         </Typography>
-        <CallIconWrapper>
+        <Box
+          width="48px"
+          height="48px"
+          borderRadius="50%"
+          bgcolor={defaultTheme.palette.redBgColor}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          cursor="pointer"
+          ml="20px"
+        >
           <img src={CallIcon} alt="" />
-        </CallIconWrapper>
+        </Box>
       </Box>
     </Box>
   );

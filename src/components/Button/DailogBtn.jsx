@@ -50,13 +50,3 @@ let DailogBtn = (props) => {
 };
 
 export default DailogBtn;
-
-{
-  /* <DialogClosingBtn
-                  onClick={() => setOpen(false)}
-                  border={true}
-                  mr="10px"
-                >
-                  No
-                </DialogClosingBtn> */
-}

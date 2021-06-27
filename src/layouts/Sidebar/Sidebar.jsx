@@ -36,24 +36,19 @@ let SidebarLogoutTitleBtn = styled.a`
   line-height: 24px;
   color: ${defaultTheme.palette.textLightColor};
 `;
-let SidebarContainer = styled(Box)`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 350px;
-  height: 100vh;
-  background-color: ${defaultTheme.palette.textDarkColor};
-  overflow: hidden scroll;
-  padding-bottom: 50px;
-
-  &::-webkit-scrollbar {
-    width: 0px;
-  }
-`;
 
 const Sidebar = () => {
   return (
-    <SidebarContainer>
+    <Box
+      position="fixed"
+      top="0"
+      left="0"
+      width="350px"
+      height="100vh"
+      bgcolor={defaultTheme.palette.textDarkColor}
+      overflow="hidden scroll"
+      pb="50px"
+    >
       <LogoSidebar as={Link} to="/">
         <img src={logoSidebar} alt="" />
       </LogoSidebar>
@@ -84,8 +79,6 @@ const Sidebar = () => {
         </Box>
       </Box>
 
-      {/*  */}
-
       <Box>
         <SidebarNavLink
           icon={<RiCustomerService2Line />}
@@ -114,9 +107,7 @@ const Sidebar = () => {
           to="/agents/Reports"
         />
       </Box>
-
-      {/*  */}
-    </SidebarContainer>
+    </Box>
   );
 };
 

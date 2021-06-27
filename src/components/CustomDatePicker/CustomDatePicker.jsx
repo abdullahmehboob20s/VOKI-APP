@@ -9,10 +9,7 @@ import {
 } from "@material-ui/pickers";
 import { Box } from "@material-ui/core";
 
-let DatePicker = styled(KeyboardDatePicker)`
-  width: 200px;
-  border-color: red;
-`;
+let DatePicker = styled(KeyboardDatePicker)``;
 
 const CustomDatePicker = () => {
   const [fromDate, setFromDate] = React.useState(new Date());
@@ -27,7 +24,7 @@ const CustomDatePicker = () => {
 
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>
-      <Box display="flex" alignItems="center">
+      <Box display="flex" width="450px" alignItems="center">
         <DatePicker
           inputVariant="outlined"
           format="MM/dd/yyyy"
