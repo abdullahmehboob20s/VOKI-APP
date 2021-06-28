@@ -2,74 +2,37 @@ import React from "react";
 import FormControlInput from "components/Input/FormControlInput";
 import FormButton from "components/Button/FormButton";
 import Footer from "layouts/Footer/Footer";
-import styled from "styled-components";
 import { Box, Typography } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
 import { useHistory } from "react-router-dom";
-
-let FormContainer = styled.form`
-  margin-top: 24px;
-`;
-let FormContainerWrapper = styled.form`
-  width: 90%;
-  max-width: 342px;
-`;
+import { Formik, Form } from "formik";
 
 const CreateAgentPage = (props) => {
   let history = useHistory();
-  let [data, setData] = React.useState({
+
+  const initialValues = {
     firstName: "",
     lastName: "",
     email: "",
-  });
-
-  let [errorMsg, seterrorMsg] = React.useState({
-    email: { status: false, msg: "" },
-    firstName: { status: false, msg: "" },
-    lastName: { status: false, msg: "" },
-  });
-
-  let inputValue = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
   };
 
-  let formSubmit = () => {
-    if (!data.email || !data.firstName || !data.lastName) {
-      seterrorMsg({
-        firstName: {
-          status: !data.firstName ? true : false,
-          msg: !data.firstName ? "First Name Cannot Be Empty" : "",
-        },
-        lastName: {
-          status: !data.lastName ? true : false,
-          msg: !data.lastName ? "Last Name Cannot Be Empty" : "",
-        },
-        email: {
-          status: !data.email ? true : false,
-          msg: !data.email ? "Email Cannot Be Empty" : "",
-        },
-      });
-      return;
+  const formValidation = (values) => {
+    const errors = {};
+    if (!values.email) {
+      errors.email = "Email is required";
     }
+    if (!values.firstName) {
+      errors.firstName = "firstName is required";
+    }
+    if (!values.lastName) {
+      errors.lastName = "lastName is required";
+    }
+    return errors;
+  };
 
-    seterrorMsg({
-      email: { status: false, msg: "" },
-      firstName: { status: false, msg: "" },
-      lastName: { status: false, msg: "" },
-    });
-
-    console.log(data);
-
-    setData({
-      firstName: "",
-      lastName: "",
-      email: "",
-    });
-
-    history.goBack();
+  const formSubmit = (values) => {
+    console.log(values);
+    history.push("/Agents/");
   };
 
   return (
@@ -95,55 +58,62 @@ const CreateAgentPage = (props) => {
         alignItems="center"
         flexDirection="column"
       >
-        <FormContainerWrapper>
-          <FormContainer>
-            <Box>
-              <FormControlInput
-                value={data.firstName}
-                error={errorMsg.firstName.status}
-                errorMsg={errorMsg.firstName.msg}
-                label="First Name"
-                type="text"
-                marginBottom="16px"
-                width="100%"
-                forhtml="firstName"
-                name="firstName"
-                onchange={(e) => inputValue(e)}
-              />
-              <FormControlInput
-                value={data.lastName}
-                error={errorMsg.lastName.status}
-                errorMsg={errorMsg.lastName.msg}
-                label="Last Name"
-                type="text"
-                marginBottom="16px"
-                width="100%"
-                forhtml="lastName"
-                name="lastName"
-                onchange={(e) => inputValue(e)}
-              />
-              <FormControlInput
-                value={data.email}
-                error={errorMsg.email.status}
-                errorMsg={errorMsg.email.msg}
-                label="Email"
-                type="email"
-                marginBottom="10px"
-                width="100%"
-                forhtml="email"
-                name="email"
-                onchange={(e) => inputValue(e)}
-              />
-            </Box>
+        <Box width="90%" maxWidth="342px">
+          <Box mt="24px">
+            <Formik
+              initialValues={initialValues}
+              validate={formValidation}
+              onSubmit={formSubmit}
+            >
+              {({ values, errors, handleChange, handleSubmit }) => (
+                <Form>
+                  <Box>
+                    <FormControlInput
+                      value={values.firstName}
+                      errorMsg={errors.firstName}
+                      label="First Name"
+                      type="text"
+                      marginBottom="16px"
+                      width="100%"
+                      forhtml="firstName"
+                      name="firstName"
+                      onchange={handleChange}
+                    />
+                    <FormControlInput
+                      value={values.lastName}
+                      errorMsg={errors.lastName}
+                      label="Last Name"
+                      type="text"
+                      marginBottom="16px"
+                      width="100%"
+                      forhtml="lastName"
+                      name="lastName"
+                      onchange={handleChange}
+                    />
+                    <FormControlInput
+                      value={values.email}
+                      errorMsg={errors.email}
+                      label="Email"
+                      type="email"
+                      marginBottom="10px"
+                      width="100%"
+                      forhtml="email"
+                      name="email"
+                      onchange={handleChange}
+                    />
+                  </Box>
 
-            <FormButton
-              type="submit"
-              title="Create Agent"
-              onPress={formSubmit}
-              width="100%"
-            ></FormButton>
-          </FormContainer>
-        </FormContainerWrapper>
+                  <FormButton
+                    type="submit"
+                    title="Create Agent"
+                    onPress={formSubmit}
+                    width="100%"
+                  ></FormButton>
+                </Form>
+              )}
+            </Formik>
+          </Box>
+        </Box>
       </Box>
       <Footer />
     </Box>

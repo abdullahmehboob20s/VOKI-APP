@@ -7,6 +7,7 @@ import Footer from "layouts/Footer/Footer";
 import styled from "styled-components";
 import { Box, Checkbox, Typography } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
+import { useFormik } from "formik";
 
 let Logo = styled.a`
   display: block;
@@ -35,9 +36,6 @@ let Logo = styled.a`
   }
 `;
 
-let FormContainer = styled.form`
-  margin-top: 24px;
-`;
 let FormContainerWrapper = styled.form`
   width: 90%;
   max-width: 342px;
@@ -65,53 +63,26 @@ let CustomCheckBox = styled(Checkbox)`
 
 const Login = () => {
   let history = useHistory();
-
-  let [data, setData] = React.useState({
-    email: "",
-    password: "",
-  });
-
-  let [errorMsg, seterrorMsg] = React.useState({
-    email: { status: false, msg: "" },
-    password: { status: false, msg: "" },
-  });
-
-  let inputValue = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  let formSubmit = () => {
-    if (!data.email || !data.password) {
-      seterrorMsg({
-        password: {
-          status: !data.password ? true : false,
-          msg: !data.password ? "Password Cannot Be Empty" : "",
-        },
-        email: {
-          status: !data.email ? true : false,
-          msg: !data.email ? "Email Cannot Be Empty" : "",
-        },
-      });
-      return;
-    }
-
-    seterrorMsg({
-      email: { status: false, msg: "" },
-      password: { status: false, msg: "" },
-    });
-
-    console.log(data);
-
-    setData({
+  let formik = useFormik({
+    initialValues: {
       email: "",
       password: "",
-    });
-
-    history.push("/Agents");
-  };
+    },
+    validate: (values) => {
+      const errors = {};
+      if (!values.email) {
+        errors.email = "Email is required";
+      }
+      if (!values.password) {
+        errors.password = "Password is required";
+      }
+      return errors;
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      history.push("/Agents");
+    },
+  });
 
   return (
     <Box
@@ -146,54 +117,52 @@ const Login = () => {
             Login to your Account
           </Typography>
 
-          <FormContainer>
-            <Box>
-              <FormControlInput
-                value={data.email}
-                error={errorMsg.email.status}
-                errorMsg={errorMsg.email.msg}
-                label="Email/Username"
-                type="email"
-                marginBottom="16px"
-                width="100%"
-                forhtml="Email/Username"
-                name="email"
-                onchange={(e) => inputValue(e)}
-              />
-              <FormControlInput
-                value={data.password}
-                error={errorMsg.password.status}
-                errorMsg={errorMsg.password.msg}
-                label="Password"
-                marginBottom="10px"
-                width="100%"
-                forhtml="Password"
-                type="password"
-                name="password"
-                onchange={(e) => inputValue(e)}
-              />
-            </Box>
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-            >
+          <Box mt="24px">
+            <form onSubmit={formik.handleSubmit}>
               <Box>
-                <CustomCheckBox id="remember" color="primary"></CustomCheckBox>
-                <CheckBoxLabel htmlFor="remember">Remember me</CheckBoxLabel>
+                <FormControlInput
+                  label="Email/Username"
+                  type="email"
+                  marginBottom="16px"
+                  width="100%"
+                  forhtml="Email/Username"
+                  name="email"
+                  value={formik.values.email}
+                  errorMsg={formik.errors.email}
+                  onchange={formik.handleChange}
+                />
+                <FormControlInput
+                  label="Password"
+                  marginBottom="10px"
+                  width="100%"
+                  forhtml="Password"
+                  type="password"
+                  name="password"
+                  value={formik.values.password}
+                  errorMsg={formik.errors.password}
+                  onchange={formik.handleChange}
+                />
               </Box>
-              <ForgetPasswordLink as={Link} to="/agents/forgetpassword">
-                Forgot password?
-              </ForgetPasswordLink>
-            </Box>
+              <Box
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+              >
+                <Box>
+                  <CustomCheckBox
+                    id="remember"
+                    color="primary"
+                  ></CustomCheckBox>
+                  <CheckBoxLabel htmlFor="remember">Remember me</CheckBoxLabel>
+                </Box>
+                <ForgetPasswordLink as={Link} to="/agents/forgetpassword">
+                  Forgot password?
+                </ForgetPasswordLink>
+              </Box>
 
-            <FormButton
-              type="submit"
-              title="LOG IN"
-              onPress={formSubmit}
-              width="100%"
-            ></FormButton>
-          </FormContainer>
+              <FormButton type="submit" title="LOG IN" width="100%" />
+            </form>
+          </Box>
         </FormContainerWrapper>
       </Box>
       <Footer />

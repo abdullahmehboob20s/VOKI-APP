@@ -7,6 +7,7 @@ import Footer from "layouts/Footer/Footer";
 import styled from "styled-components";
 import defaultTheme from "theme/defaultTheme";
 import { Box, Typography } from "@material-ui/core";
+import { Formik, Form } from "formik";
 
 let Logo = styled.a`
   display: block;
@@ -34,50 +35,23 @@ let Logo = styled.a`
     }
   }
 `;
-let FormContainer = styled.form`
-  margin-top: 24px;
-`;
-let FormContainerWrapper = styled.form`
-  width: 90%;
-  max-width: 342px;
-`;
-
 const ForgetPassword = () => {
   let history = useHistory();
-  let [data, setData] = React.useState({
+
+  const initialValues = {
     email: "",
-  });
-
-  let [errorMsg, seterrorMsg] = React.useState({
-    email: { status: false, msg: "" },
-  });
-
-  let inputValue = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
   };
 
-  let formSubmit = () => {
-    if (!data.email) {
-      seterrorMsg({
-        email: {
-          status: !data.email ? true : false,
-          msg: !data.email ? "Email Cannot Be Empty" : "",
-        },
-      });
-      return;
+  const formValidation = (values) => {
+    const errors = {};
+    if (!values.email) {
+      errors.email = "Email is required";
     }
+    return errors;
+  };
 
-    seterrorMsg({
-      email: { status: false, msg: "" },
-    });
-
-    setData({
-      email: "",
-    });
-
+  const formSubmit = (values) => {
+    console.log(values);
     history.push("/agents/resetpassword");
   };
 
@@ -101,7 +75,7 @@ const ForgetPassword = () => {
         alignItems="center"
         flexDirection="column"
       >
-        <FormContainerWrapper>
+        <Box maxWidth="342px" width="90%">
           <Box mb="8px">
             <Typography color={defaultTheme.palette.textDarkColor} variant="h6">
               Forget your Password
@@ -115,29 +89,39 @@ const ForgetPassword = () => {
             your password
           </Typography>
 
-          <FormContainer>
-            <Box>
-              <FormControlInput
-                value={data.email}
-                type="email"
-                error={errorMsg.email.status}
-                errorMsg={errorMsg.email.msg}
-                label="Email Address"
-                width="100%"
-                marginBottom="0px"
-                forhtml="Email-Address"
-                name="email"
-                onchange={inputValue}
-              />
-            </Box>
+          <Formik
+            initialValues={initialValues}
+            onSubmit={formSubmit}
+            validate={formValidation}
+          >
+            {({ values, handleChange, errors, handleSubmit, handleReset }) => (
+              <Form onReset={handleReset} onSubmit={handleSubmit}>
+                <Box mt="24px">
+                  <Box>
+                    <FormControlInput
+                      value={values.email}
+                      type="email"
+                      errorMsg={errors.email}
+                      label="Email Address"
+                      width="100%"
+                      marginBottom="0px"
+                      forhtml="Email-Address"
+                      name="email"
+                      onchange={handleChange}
+                    />
+                  </Box>
 
-            <FormButton
-              title="Reset Password"
-              width="100%"
-              onPress={formSubmit}
-            />
-          </FormContainer>
-        </FormContainerWrapper>
+                  <FormButton
+                    title="Reset Password"
+                    width="100%"
+                    type="submit"
+                    onPress={formSubmit}
+                  />
+                </Box>
+              </Form>
+            )}
+          </Formik>
+        </Box>
       </Box>
       <Footer />
     </Box>

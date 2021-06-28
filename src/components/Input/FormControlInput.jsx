@@ -22,6 +22,12 @@ let CustomFormLabel = styled(FormLabel)`
   margin-bottom: 8px;
 `;
 
+let CustomFormHelperText = styled(FormHelperText)`
+  &&& {
+    font-size: 13px;
+  }
+`;
+
 const FormControlInput = (props) => {
   let {
     label = "label",
@@ -29,8 +35,8 @@ const FormControlInput = (props) => {
     marginBottom = "16px",
     width = "100%",
     forhtml,
-    error = false,
-    errorMsg = "error message",
+    error,
+    errorMsg,
     onchange,
     value,
     name,
@@ -38,7 +44,7 @@ const FormControlInput = (props) => {
 
   return (
     <FormControl
-      error={error}
+      error={errorMsg ? true : false}
       style={{ width: width, marginBottom: marginBottom }}
     >
       <CustomFormLabel htmlFor={forhtml}>{label}</CustomFormLabel>
@@ -52,8 +58,8 @@ const FormControlInput = (props) => {
         customborder={error ? `1px solid ${red[500]}` : null}
         width={width}
       />
-      {error ? (
-        <FormHelperText id="component-error-text">{errorMsg}</FormHelperText>
+      {errorMsg ? (
+        <CustomFormHelperText>{errorMsg}</CustomFormHelperText>
       ) : null}
     </FormControl>
   );

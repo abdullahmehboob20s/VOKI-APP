@@ -24,11 +24,16 @@ let StyledButton = styled.button`
 `;
 
 let FormButton = (props) => {
-  let { title, onPress, width } = props;
+  let { title, onPress, width, type = "button" } = props;
 
   return (
     <Box mt="17px">
-      <StyledButton variant="contained" onClick={onPress} custom_width={width}>
+      <StyledButton
+        variant="contained"
+        type={type}
+        onClick={onPress}
+        custom_width={width}
+      >
         {title}
       </StyledButton>
     </Box>

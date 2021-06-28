@@ -7,6 +7,7 @@ import Footer from "layouts/Footer/Footer";
 import defaultTheme from "theme/defaultTheme";
 import styled from "styled-components";
 import { Box, Typography } from "@material-ui/core";
+import { Formik, Form } from "formik";
 
 let Logo = styled.a`
   display: block;
@@ -34,70 +35,36 @@ let Logo = styled.a`
     }
   }
 `;
-
-let FormContainer = styled.form`
-  margin-top: 24px;
-`;
 let FormContainerWrapper = styled.form`
   width: 90%;
   max-width: 342px;
 `;
 
 const Login = () => {
-  let [data, setData] = React.useState({
+  const initialValues = {
     newPassword: "",
     retypePassword: "",
-  });
-  let [errorMsg, seterrorMsg] = React.useState({
-    newPassword: { status: false, msg: "" },
-    retypePassword: { status: false, msg: "" },
-  });
-
-  let inputValue = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
   };
 
-  let formSubmit = () => {
-    if (!data.newPassword || !data.retypePassword) {
-      seterrorMsg({
-        retypePassword: {
-          status: !data.retypePassword ? true : false,
-          msg: !data.retypePassword ? "Input Cannot Be Empty" : "",
-        },
-        newPassword: {
-          status: !data.newPassword ? true : false,
-          msg: !data.newPassword ? "Input Cannot Be Empty" : "",
-        },
-      });
-      return;
+  const formValidation = (values) => {
+    const errors = {};
+    if (!values.newPassword) {
+      errors.newPassword = "Password cannot be empty";
+    }
+    if (!values.retypePassword) {
+      errors.retypePassword = "Password cannot be empty";
     }
 
-    if (data.newPassword !== data.retypePassword) {
-      seterrorMsg({
-        retypePassword: {
-          status: true,
-          msg: "Passwords Are Not Matching",
-        },
-        newPassword: {
-          status: true,
-          msg: "Passwords Are Not Matching",
-        },
-      });
-      return;
+    if (values.newPassword !== values.retypePassword) {
+      errors.newPassword = "Passwords are not matching";
+      errors.retypePassword = "Passwords are not matching";
     }
 
-    seterrorMsg({
-      newPassword: { status: false, msg: "" },
-      retypePassword: { status: false, msg: "" },
-    });
+    return errors;
+  };
 
-    setData({
-      newPassword: "",
-      retypePassword: "",
-    });
+  const formSubmit = (values) => {
+    console.log(values);
   };
 
   return (
@@ -133,40 +100,49 @@ const Login = () => {
             Please enter your new password
           </Typography>
 
-          <FormContainer>
-            <Box>
-              <FormControlInput
-                value={data.newPassword}
-                error={errorMsg.newPassword.status}
-                errorMsg={errorMsg.newPassword.msg}
-                label="New Password"
-                type="password"
-                marginBottom="16px"
-                width="100%"
-                forhtml="New-Password"
-                name="newPassword"
-                onchange={inputValue}
-              />
-              <FormControlInput
-                value={data.retypePassword}
-                error={errorMsg.retypePassword.status}
-                errorMsg={errorMsg.retypePassword.msg}
-                label="Retype Password"
-                forhtml="Retype-Password"
-                type="password"
-                marginBottom="0px"
-                width="100%"
-                name="retypePassword"
-                onchange={inputValue}
-              />
-            </Box>
+          <Formik
+            initialValues={initialValues}
+            validate={formValidation}
+            onSubmit={formSubmit}
+          >
+            {({ values, handleChange, errors, handleSubmit }) => (
+              <Form>
+                <Box mt="24px">
+                  <Box>
+                    <FormControlInput
+                      value={values.newPassword}
+                      errorMsg={errors.newPassword}
+                      label="New Password"
+                      type="password"
+                      marginBottom="16px"
+                      width="100%"
+                      forhtml="New-Password"
+                      name="newPassword"
+                      onchange={handleChange}
+                    />
+                    <FormControlInput
+                      value={values.retypePassword}
+                      errorMsg={errors.retypePassword}
+                      label="Retype Password"
+                      forhtml="Retype-Password"
+                      type="password"
+                      marginBottom="0px"
+                      width="100%"
+                      name="retypePassword"
+                      onchange={handleChange}
+                    />
+                  </Box>
 
-            <FormButton
-              title="Reset Password"
-              width="100%"
-              onPress={formSubmit}
-            />
-          </FormContainer>
+                  <FormButton
+                    type="submit"
+                    title="Reset Password"
+                    width="100%"
+                    onPress={formSubmit}
+                  />
+                </Box>
+              </Form>
+            )}
+          </Formik>
         </FormContainerWrapper>
       </Box>
       <Footer />
