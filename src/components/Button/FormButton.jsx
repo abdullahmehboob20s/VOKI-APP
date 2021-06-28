@@ -6,8 +6,6 @@ import styled from "styled-components";
 let StyledButton = styled.button`
   &&& {
     height: 48px;
-    color: ${defaultTheme.palette.whiteColor};
-    background-color: ${defaultTheme.palette.textDarkColor};
     width: ${(props) => props.custom_width};
     font-style: normal;
     font-weight: 500;
@@ -17,26 +15,34 @@ let StyledButton = styled.button`
     border: none;
     cursor: pointer;
 
-    &:hover {
-      background-color: ${defaultTheme.palette.textDarkColor};
-    }
+    background: ${(props) =>
+      props.border === true
+        ? defaultTheme.palette.whiteColor
+        : defaultTheme.palette.textDarkColor};
+    color: ${(props) =>
+      props.border === true
+        ? defaultTheme.palette.textDarkColor
+        : defaultTheme.palette.whiteColor};
+    border: ${(props) =>
+      props.border === true
+        ? `1px solid ${defaultTheme.palette.textDarkColor}`
+        : "none"};
   }
 `;
 
 let FormButton = (props) => {
-  let { title, onPress, width, type = "button" } = props;
+  let { title, onPress, width, type = "button", border } = props;
 
   return (
-    <Box mt="17px">
-      <StyledButton
-        variant="contained"
-        type={type}
-        onClick={onPress}
-        custom_width={width}
-      >
-        {title}
-      </StyledButton>
-    </Box>
+    <StyledButton
+      variant="contained"
+      type={type}
+      onClick={onPress}
+      custom_width={width}
+      border={border}
+    >
+      {title}
+    </StyledButton>
   );
 };
 

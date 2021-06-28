@@ -4,12 +4,11 @@ import AgentSelect from "components/Selects/AgentSelect";
 import { RiDeleteBinLine } from "react-icons/ri";
 import Footer from "layouts/Footer/Footer";
 import ReturningIcon from "components/ReturningIcon/ReturningIcon";
-import FormButtom from "components/Button/FormButton";
+import FormButton from "components/Button/FormButton";
 import { Box, Dialog, Typography } from "@material-ui/core";
 import defaultTheme from "theme/defaultTheme";
 import { useHistory } from "react-router-dom";
 import { useRouteMatch } from "react-router-dom";
-import DailogBtn from "components/Button/DailogBtn";
 
 let TableContainer = styled.table`
   width: 100%;
@@ -113,23 +112,24 @@ const AgentPage = (props) => {
               <Box mb={2} textAlign="center">
                 <Typography variant="h4">Delete Agent</Typography>
               </Box>
-              <Box mb={2} textAlign="center">
+              <Box mb={2.5} textAlign="center">
                 <Typography variant="subtitle2">
                   Are you sure you wanna delete this agent?
                 </Typography>
               </Box>
-              <Box display="flex" px={5}>
-                <DailogBtn
-                  title="No"
-                  border={true}
-                  mr="10px"
-                  click={() => setOpen(false)}
-                />
-                <DailogBtn
+              <Box display="flex" justifyContent="center" px={5}>
+                <Box mr="10px" width="100%">
+                  <FormButton
+                    onPress={() => setOpen(false)}
+                    width="100%"
+                    title="No"
+                    border={true}
+                  />
+                </Box>
+                <FormButton
+                  onPress={() => setOpen(false)}
+                  width="100%"
                   title="Yes"
-                  border={false}
-                  mr="0px"
-                  click={() => setOpen(false)}
                 />
               </Box>
             </Box>
@@ -173,8 +173,8 @@ const AgentPage = (props) => {
                 ))}
               </tbody>
             </TableContainer>
-            <Box marginBottom="100px">
-              <FormButtom
+            <Box marginBottom="100px" mt="17px">
+              <FormButton
                 title="Create Agent"
                 width="195px"
                 onPress={() => history.push(`${path}/createAgent`)}

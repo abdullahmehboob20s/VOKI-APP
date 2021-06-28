@@ -132,13 +132,14 @@ const Login = () => {
                       onchange={handleChange}
                     />
                   </Box>
-
-                  <FormButton
-                    type="submit"
-                    title="Reset Password"
-                    width="100%"
-                    onPress={formSubmit}
-                  />
+                  <Box mt="17px">
+                    <FormButton
+                      type="submit"
+                      title="Reset Password"
+                      width="100%"
+                      onPress={formSubmit}
+                    />
+                  </Box>
                 </Box>
               </Form>
             )}

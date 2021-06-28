@@ -110,13 +110,14 @@ const ForgetPassword = () => {
                       onchange={handleChange}
                     />
                   </Box>
-
-                  <FormButton
-                    title="Reset Password"
-                    width="100%"
-                    type="submit"
-                    onPress={formSubmit}
-                  />
+                  <Box mt="17px">
+                    <FormButton
+                      title="Reset Password"
+                      width="100%"
+                      type="submit"
+                      onPress={formSubmit}
+                    />
+                  </Box>
                 </Box>
               </Form>
             )}

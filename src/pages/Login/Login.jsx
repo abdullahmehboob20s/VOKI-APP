@@ -63,11 +63,18 @@ let CustomCheckBox = styled(Checkbox)`
 
 const Login = () => {
   let history = useHistory();
+
+  let formSubmit = (values) => {
+    console.log(values);
+    history.push("/Agents");
+  };
+
   let formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
+    onSubmit: formSubmit,
     validate: (values) => {
       const errors = {};
       if (!values.email) {
@@ -77,10 +84,6 @@ const Login = () => {
         errors.password = "Password is required";
       }
       return errors;
-    },
-    onSubmit: (values) => {
-      console.log(values);
-      history.push("/Agents");
     },
   });
 
@@ -159,8 +162,9 @@ const Login = () => {
                   Forgot password?
                 </ForgetPasswordLink>
               </Box>
-
-              <FormButton type="submit" title="LOG IN" width="100%" />
+              <Box mt="17px">
+                <FormButton onPress={formSubmit} title="LOG IN" width="100%" />
+              </Box>
             </form>
           </Box>
         </FormContainerWrapper>

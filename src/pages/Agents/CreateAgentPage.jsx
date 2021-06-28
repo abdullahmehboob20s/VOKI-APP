@@ -102,13 +102,14 @@ const CreateAgentPage = (props) => {
                       onchange={handleChange}
                     />
                   </Box>
-
-                  <FormButton
-                    type="submit"
-                    title="Create Agent"
-                    onPress={formSubmit}
-                    width="100%"
-                  ></FormButton>
+                  <Box mt="17px">
+                    <FormButton
+                      type="submit"
+                      title="Create Agent"
+                      onPress={formSubmit}
+                      width="100%"
+                    ></FormButton>
+                  </Box>
                 </Form>
               )}
             </Formik>
