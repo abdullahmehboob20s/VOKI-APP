@@ -100,10 +100,14 @@ const Calls = () => {
       flexDirection="column"
       py={6.25}
       px={7.5}
+      bgcolor={defaultTheme.palette.bgLightColor}
     >
       <Box flex="1">
         <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Typography variant="h1" color={defaultTheme.palette.textDarkColor}>
+          <Typography
+            variant="h1"
+            style={{ color: defaultTheme.palette.textDarkColor }}
+          >
             Calls
           </Typography>
           <Box>

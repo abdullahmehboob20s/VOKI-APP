@@ -68,7 +68,7 @@ const Sidebar = () => {
           <Box mb="5px">
             <Typography
               variant="h4"
-              color={defaultTheme.palette.textLightColor}
+              style={{ color: defaultTheme.palette.textLightColor }}
             >
               Super Admin
             </Typography>

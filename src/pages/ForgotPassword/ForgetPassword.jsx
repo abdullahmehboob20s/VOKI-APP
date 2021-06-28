@@ -77,13 +77,16 @@ const ForgetPassword = () => {
       >
         <Box maxWidth="342px" width="90%">
           <Box mb="8px">
-            <Typography color={defaultTheme.palette.textDarkColor} variant="h6">
+            <Typography
+              style={{ color: defaultTheme.palette.textDarkColor }}
+              variant="h6"
+            >
               Forget your Password
             </Typography>
           </Box>
           <Typography
             variant="body2"
-            color={defaultTheme.palette.formLabelColor}
+            style={{ color: defaultTheme.palette.formLabelColor }}
           >
             Please enter your email address so we can send you a link to reset
             your password

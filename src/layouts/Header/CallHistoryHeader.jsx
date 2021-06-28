@@ -12,13 +12,16 @@ const CallHistoryHeader = () => {
       bgcolor={defaultTheme.palette.headerBackColor}
       padding="15px 60px"
     >
-      <Typography color={defaultTheme.palette.textBoldColor} variant="body1">
+      <Typography
+        style={{ color: defaultTheme.palette.textBoldColor }}
+        variant="body1"
+      >
         Valentin Tudose
       </Typography>
       <Box display="flex" alignItems="center">
         <Typography
           variant="overline"
-          color={defaultTheme.palette.textBoldColor}
+          style={{ color: defaultTheme.palette.textBoldColor }}
         >
           00:01
         </Typography>

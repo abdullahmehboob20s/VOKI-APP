@@ -110,13 +110,16 @@ const Login = () => {
         <FormContainerWrapper>
           <Box mb="8px">
             <Typography
-              color={defaultTheme.palette.textDarkColor}
+              style={{ color: defaultTheme.palette.textDarkColor }}
               variant="body1"
             >
               Welcome to Voki
             </Typography>
           </Box>
-          <Typography color={defaultTheme.palette.textDarkColor} variant="h6">
+          <Typography
+            style={{ color: defaultTheme.palette.textDarkColor }}
+            variant="h6"
+          >
             Login to your Account
           </Typography>
 

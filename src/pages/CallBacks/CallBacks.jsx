@@ -95,7 +95,10 @@ const CallBacks = () => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Typography variant="h1" color={defaultTheme.palette.textDarkColor}>
+            <Typography
+              variant="h1"
+              style={{ color: defaultTheme.palette.textDarkColor }}
+            >
               CallBacks
             </Typography>
             <CustomDatePicker />

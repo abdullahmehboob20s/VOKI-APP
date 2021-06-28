@@ -17,7 +17,10 @@ const AgentPasswordChange = () => {
       <Box flex="1">
         <Typography variant="h1">Create Agent</Typography>
         <Box mt="24px">
-          <Typography variant="h3" color={defaultTheme.palette.textBoldColor}>
+          <Typography
+            variant="h3"
+            style={{ color: defaultTheme.palette.textBoldColor }}
+          >
             An email will be sent to the agent where the password can be
             changed.
           </Typography>

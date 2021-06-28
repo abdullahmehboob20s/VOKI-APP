@@ -46,7 +46,10 @@ const CreateAgentPage = (props) => {
       px={0}
     >
       <Box position="absolute" top="24px" left="44px">
-        <Typography color={defaultTheme.palette.bgDarkColor} variant="h1">
+        <Typography
+          style={{ color: defaultTheme.palette.bgDarkColor }}
+          variant="h1"
+        >
           Create Agent
         </Typography>
       </Box>

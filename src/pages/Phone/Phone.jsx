@@ -66,7 +66,10 @@ const Phone = () => {
       <Box flex="1" display="flex" mb="100px">
         <Box flex="1" mr="50px">
           <Box height="90px" display="flex" alignItems="flex-start">
-            <Typography variant="h1" color={defaultTheme.palette.textDarkColor}>
+            <Typography
+              variant="h1"
+              style={{ color: defaultTheme.palette.textDarkColor }}
+            >
               Phone
             </Typography>
           </Box>
@@ -91,7 +94,7 @@ const Phone = () => {
                 <img src={phoneCallImage} alt="" />
               </Box>
               <Typography
-                color={defaultTheme.palette.textBoldColor}
+                style={{ color: defaultTheme.palette.textBoldColor }}
                 variant="subtitle1"
               >
                 00:01
@@ -107,9 +110,11 @@ const Phone = () => {
                   justifyContent="center"
                   alignItems="center"
                   fontSize="42px"
-                  color={defaultTheme.palette.textBoldColor}
                   boxShadow=" 0px 4px 4px rgba(0, 0, 0, 0.15)"
-                  style={{ cursor: "pointer" }}
+                  style={{
+                    cursor: "pointer",
+                    color: defaultTheme.palette.whiteColor,
+                  }}
                 >
                   <GrPause />
                 </Box>
@@ -122,10 +127,13 @@ const Phone = () => {
                   justifyContent="center"
                   alignItems="center"
                   fontSize="42px"
-                  color={defaultTheme.palette.whiteColor}
                   boxShadow=" 0px 4px 4px rgba(0, 0, 0, 0.15)"
                   ml="47px"
-                  style={{ cursor: "pointer" }}
+                  border="2px solid red"
+                  style={{
+                    cursor: "pointer",
+                    color: defaultTheme.palette.whiteColor,
+                  }}
                 >
                   <MdCallEnd />
                 </Box>
@@ -139,7 +147,7 @@ const Phone = () => {
               <Box textAlign="center">
                 <Typography
                   variant="h3"
-                  color={defaultTheme.palette.textBoldColor}
+                  style={{ color: defaultTheme.palette.textBoldColor }}
                 >
                   Reason: I want to clear my bank account.
                 </Typography>
@@ -152,7 +160,7 @@ const Phone = () => {
           <Box height="90px" display="flex" alignItems="flex-start">
             <Typography
               variant="caption"
-              color={defaultTheme.palette.textDarkColor}
+              style={{ color: defaultTheme.palette.textDarkColor }}
             >
               Notes
             </Typography>
@@ -171,7 +179,7 @@ const Phone = () => {
               <Box width="70%" mb="30px">
                 <Typography
                   variant="subtitle2"
-                  color={defaultTheme.palette.textBoldColor}
+                  style={{ color: defaultTheme.palette.textBoldColor }}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Corrupti quae unde nostrum quam ab maiores laudantium eveniet
@@ -194,7 +202,7 @@ const Phone = () => {
               <Box width="70%" mb="30px">
                 <Typography
                   variant="subtitle2"
-                  color={defaultTheme.palette.textBoldColor}
+                  style={{ color: defaultTheme.palette.textBoldColor }}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laudantium sapiente quo aliquam asperiores voluptatem, sit

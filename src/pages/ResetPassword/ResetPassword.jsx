@@ -89,12 +89,15 @@ const Login = () => {
       >
         <FormContainerWrapper>
           <Box mb="8px">
-            <Typography color={defaultTheme.palette.textDarkColor} variant="h6">
+            <Typography
+              style={{ color: defaultTheme.palette.textDarkColor }}
+              variant="h6"
+            >
               Reset your Password
             </Typography>
           </Box>
           <Typography
-            color={defaultTheme.palette.formLabelColor}
+            style={{ color: defaultTheme.palette.formLabelColor }}
             variant="body2"
           >
             Please enter your new password
