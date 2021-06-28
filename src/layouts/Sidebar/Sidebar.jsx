@@ -43,7 +43,7 @@ const Sidebar = () => {
       position="fixed"
       top="0"
       left="0"
-      width="350px"
+      width="300px"
       height="100vh"
       bgcolor={defaultTheme.palette.textDarkColor}
       overflow="hidden scroll"

@@ -6,7 +6,8 @@ import { Box, Typography } from "@material-ui/core";
 
 let SidebarLinkIcon = styled.div`
   font-size: 27px;
-  width: 80px;
+  width: 50px;
+  margin-right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,6 +37,7 @@ const SidebarNavLink = (props) => {
         alignItems="center"
         justifyContent="flex-start"
         width="70%"
+        // border="2px solid red"
       >
         <SidebarLinkIcon>{icon}</SidebarLinkIcon>
         <Typography variant="h5">{title}</Typography>
