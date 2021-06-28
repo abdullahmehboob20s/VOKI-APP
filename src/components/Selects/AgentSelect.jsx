@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import ReturningIcon from "components/ReturningIcon/ReturningIcon";
 import defaultTheme from "theme/defaultTheme";
-import { FormControl, Select, MenuItem } from "@material-ui/core";
+import { FormControl, Select, MenuItem, Box } from "@material-ui/core";
+
+import CheckIcon from "@material-ui/icons/Check";
+import RemoveIcon from "@material-ui/icons/Remove";
+import AccessTimeIcon from "@material-ui/icons/AccessTime";
+import WifiOffIcon from "@material-ui/icons/WifiOff";
 
 const CustomFormControl = styled(FormControl)`
   width: 232px;
@@ -12,6 +16,11 @@ const CustomFormControl = styled(FormControl)`
 `;
 let CustomSelect = styled(Select)`
   height: 48px;
+`;
+let CustomMenuItem = styled(MenuItem)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const AgentSelect = () => {
@@ -31,13 +40,24 @@ const AgentSelect = () => {
         value={filter.status}
         onChange={handleChange}
         defaultValue="All"
-        IconComponent={() => <ReturningIcon agent={filter} />}
       >
-        <MenuItem value="All">All </MenuItem>
-        <MenuItem value="Available">Available</MenuItem>
-        <MenuItem value="Busy">Busy</MenuItem>
-        <MenuItem value="Away">Away</MenuItem>
-        <MenuItem value="Offline">Offline</MenuItem>
+        <CustomMenuItem value="All">All</CustomMenuItem>
+        <CustomMenuItem value="Available">
+          Available
+          <CheckIcon style={{ marginRight: 10 }} fontSize="small" />
+        </CustomMenuItem>
+        <CustomMenuItem value="Busy">
+          Busy
+          <RemoveIcon style={{ marginRight: 10 }} fontSize="small" />
+        </CustomMenuItem>
+        <CustomMenuItem value="Away">
+          Away
+          <AccessTimeIcon style={{ marginRight: 10 }} fontSize="small" />
+        </CustomMenuItem>
+        <CustomMenuItem value="Offline">
+          Offline
+          <WifiOffIcon style={{ marginRight: 10 }} fontSize="small" />
+        </CustomMenuItem>
       </CustomSelect>
     </CustomFormControl>
   );

@@ -95,11 +95,12 @@ const Calls = () => {
 
   return (
     <Box
-      minHeight="100"
+      minHeight="100vh"
       display="flex"
       flexDirection="column"
-      py={6.25}
-      px={7.5}
+      pt={12.5}
+      pb={6.25}
+      px={15.125}
       bgcolor={defaultTheme.palette.bgLightColor}
     >
       <Box flex="1">
@@ -129,7 +130,7 @@ const Calls = () => {
           </Box>
         </Box>
 
-        <Box mt="38px" mb="100px">
+        <Box mt={4.75} mb={12.5}>
           <TabPanel value={currentTab} index={0}>
             <TableContainer as="table">
               <thead>

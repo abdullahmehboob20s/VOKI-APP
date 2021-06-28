@@ -42,10 +42,11 @@ const CreateAgentPage = (props) => {
       flexDirection="column"
       position="relative"
       bgcolor={defaultTheme.palette.bgLightColor}
-      py={3.75}
-      px={0}
+      pt={12.5}
+      pb={6.25}
+      px={15.125}
     >
-      <Box position="absolute" top="24px" left="44px">
+      <Box position="absolute" top="30px" left="44px">
         <Typography
           style={{ color: defaultTheme.palette.bgDarkColor }}
           variant="h1"

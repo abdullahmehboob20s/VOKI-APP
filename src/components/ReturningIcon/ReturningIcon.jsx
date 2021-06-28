@@ -1,6 +1,5 @@
 import React from "react";
 
-// Icons
 import CheckIcon from "@material-ui/icons/Check";
 import RemoveIcon from "@material-ui/icons/Remove";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";

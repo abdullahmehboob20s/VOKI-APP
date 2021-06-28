@@ -12,11 +12,11 @@ import { useFormik } from "formik";
 let Logo = styled.a`
   display: block;
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 100px;
+  left: 100px;
   img {
-    width: 194.39px;
-    height: 78px;
+    width: 139.99px;
+    height: 56px;
   }
 
   @media (max-width: 880px) {

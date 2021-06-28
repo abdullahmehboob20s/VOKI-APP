@@ -42,7 +42,7 @@ const AppRoutes = () => {
 
           <Box position="relative">
             <Sidebar />
-            <Box ml="300px">
+            <Box ml="260px">
               <Route path="/Agents" exact component={Agents} />
               <Route
                 exact

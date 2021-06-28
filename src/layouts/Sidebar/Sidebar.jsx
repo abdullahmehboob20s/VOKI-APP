@@ -17,14 +17,14 @@ import { Box, Typography } from "@material-ui/core";
 
 let LogoSidebar = styled.a`
   width: 100%;
-  padding: 40px;
+  padding: 55px 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
 
   img {
-    width: 180px;
+    width: 140px;
+    height: 56px;
     cursor: pointer;
   }
 `;
@@ -43,7 +43,7 @@ const Sidebar = () => {
       position="fixed"
       top="0"
       left="0"
-      width="300px"
+      width="260px"
       height="100vh"
       bgcolor={defaultTheme.palette.textDarkColor}
       overflow="hidden scroll"

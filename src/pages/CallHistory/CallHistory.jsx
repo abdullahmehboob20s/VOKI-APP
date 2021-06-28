@@ -88,10 +88,11 @@ const CallHistory = () => {
         minHeight="100"
         display="flex"
         flexDirection="column"
-        py={6.25}
-        px={7.5}
+        pt={12.5}
+        pb={6.25}
+        px={15.125}
       >
-        <Box flex="1" mb="100px">
+        <Box flex="1" mb={12.5}>
           <Box
             display="flex"
             justifyContent="space-between"
@@ -106,9 +107,11 @@ const CallHistory = () => {
             <CustomDatePicker />
           </Box>
 
-          <Box mt="46px" display="flex">
+          <Box mt={5.75} display="flex">
             <MyCustomTextField placeholder="Search..." />
-            <MyCustomSelect names={names} func={handleChange} />
+            <Box ml={6.25}>
+              <MyCustomSelect names={names} func={handleChange} />
+            </Box>
           </Box>
 
           <Box mt="38px">

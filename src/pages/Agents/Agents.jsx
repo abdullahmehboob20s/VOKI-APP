@@ -83,8 +83,9 @@ const AgentPage = (props) => {
         minHeight="100vh"
         display="flex"
         flexDirection="column"
-        py="50px"
-        px="60px"
+        pt={12.5}
+        pb={6.25}
+        px={15.125}
         bgcolor={defaultTheme.palette.bgLightColor}
       >
         <Box flex="1">
@@ -121,7 +122,7 @@ const AgentPage = (props) => {
                 </Typography>
               </Box>
               <Box display="flex" justifyContent="center" px={5}>
-                <Box mr="10px" width="100%">
+                <Box mr={1.25} width="100%">
                   <FormButton
                     onPress={() => setOpen(false)}
                     width="100%"
@@ -176,7 +177,7 @@ const AgentPage = (props) => {
                 ))}
               </tbody>
             </TableContainer>
-            <Box marginBottom="100px" mt="17px">
+            <Box marginBottom="100px" mt={2.125}>
               <FormButton
                 title="Create Agent"
                 width="195px"

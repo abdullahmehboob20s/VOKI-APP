@@ -59,12 +59,13 @@ const Phone = () => {
       minHeight="100"
       display="flex"
       flexDirection="column"
-      py={6.25}
-      px={7.5}
+      pt={12.5}
+      pb={6.25}
+      px={15.125}
       bgcolor={defaultTheme.palette.bgLightColor}
     >
-      <Box flex="1" display="flex" mb="100px">
-        <Box flex="1" mr="50px">
+      <Box flex="1" display="flex" mb={12.5}>
+        <Box flex="1" mr={6.25}>
           <Box height="90px" display="flex" alignItems="flex-start">
             <Typography
               variant="h1"
@@ -79,18 +80,18 @@ const Phone = () => {
             borderRadius="4px"
             display="flex"
             flexDirection="column"
-            paddingBottom="20px"
+            pb={2.5}
           >
             <Box
-              padding="54px"
+              padding={6.75}
               flex="1"
               display="flex"
               flexDirection="column"
               alignItems="center"
-              mb="50px"
+              mb={6.25}
             >
               <Typography variant="caption">James Bond</Typography>
-              <Box mt="32px" mb="32px">
+              <Box mt={4} mb={4}>
                 <img src={phoneCallImage} alt="" />
               </Box>
               <Typography
@@ -100,7 +101,7 @@ const Phone = () => {
                 00:01
               </Typography>
 
-              <Box display="flex" alignItems="center" mt="32px">
+              <Box display="flex" alignItems="center" mt={4}>
                 <Box
                   width="72px"
                   height="72px"
@@ -128,7 +129,7 @@ const Phone = () => {
                   alignItems="center"
                   fontSize="42px"
                   boxShadow=" 0px 4px 4px rgba(0, 0, 0, 0.15)"
-                  ml="47px"
+                  ml={5.875}
                   border="2px solid red"
                   style={{
                     cursor: "pointer",
@@ -142,7 +143,8 @@ const Phone = () => {
             <Box
               borderTop="1px solid rgba(22, 28, 47, 0.2)"
               padding="20px 0"
-              margin="0 54px"
+              my={0}
+              mx={6.75}
             >
               <Box textAlign="center">
                 <Typography
@@ -170,13 +172,13 @@ const Phone = () => {
             <Box
               bgcolor={defaultTheme.palette.whiteColor}
               boxShadow={`0px 4px 4px ${defaultTheme.palette.shadowBlueColor}`}
-              mb="31px"
+              mb={3.875}
               borderLeft={`6px solid ${defaultTheme.palette.textDarkColor}`}
               py={2}
               px={2.5}
               position="relative"
             >
-              <Box width="70%" mb="30px">
+              <Box width="70%" mb={3.75}>
                 <Typography
                   variant="subtitle2"
                   style={{ color: defaultTheme.palette.textBoldColor }}
@@ -199,7 +201,7 @@ const Phone = () => {
               px={2.5}
               position="relative"
             >
-              <Box width="70%" mb="30px">
+              <Box width="70%" mb={3.75}>
                 <Typography
                   variant="subtitle2"
                   style={{ color: defaultTheme.palette.textBoldColor }}
@@ -220,6 +222,8 @@ const Phone = () => {
             <Box
               bgcolor="white"
               padding="16px 20px"
+              py={2}
+              px={2.5}
               boxShadow={`0px 4px 4px ${defaultTheme.palette.shadowBlueColor}`}
               display="flex"
             >

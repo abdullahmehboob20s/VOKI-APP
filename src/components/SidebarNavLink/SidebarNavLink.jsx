@@ -6,8 +6,9 @@ import { Box, Typography } from "@material-ui/core";
 
 let SidebarLinkIcon = styled.div`
   font-size: 27px;
-  width: 50px;
-  margin-right: 10px;
+  width: 22px;
+  height: 22px;
+  margin-right: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,15 +17,16 @@ let SideBarLink = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 64px;
+  height: 60px;
   background-color: transparent;
   text-decoration: none;
   color: white;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 
   &.SideBarLinkActive {
     background-color: ${defaultTheme.palette.bgLightColor};
     color: ${defaultTheme.palette.textDarkColor};
+    font-weight: 600;
   }
 `;
 
@@ -37,7 +39,6 @@ const SidebarNavLink = (props) => {
         alignItems="center"
         justifyContent="flex-start"
         width="70%"
-        // border="2px solid red"
       >
         <SidebarLinkIcon>{icon}</SidebarLinkIcon>
         <Typography variant="h5">{title}</Typography>

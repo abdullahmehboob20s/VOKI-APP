@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { FormControl, MenuItem, Select } from "@material-ui/core";
 
 let CustomSelect = styled(Select)`
-  margin-left: 20px;
   width: 200px;
 `;
 

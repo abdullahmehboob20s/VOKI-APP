@@ -72,13 +72,14 @@ const Reports = () => {
   return (
     <Box bgcolor={defaultTheme.palette.bgLightColor}>
       <Box
-        minHeight="100"
+        minHeight="100vh"
         display="flex"
         flexDirection="column"
-        py={6.25}
-        px={7.5}
+        pt={12.5}
+        pb={6.25}
+        px={15.125}
       >
-        <Box flex="1" mb="100px">
+        <Box flex="1" mb={12.5}>
           <Box
             display="flex"
             justifyContent="space-between"
@@ -94,13 +95,13 @@ const Reports = () => {
           </Box>
 
           <Box
-            mt="46px"
+            mt={5.75}
             display="flex"
             justifyContent="space-between"
             alignItems="center"
           >
             <Box display="flex" alignItems="center">
-              <Box mr="10px">
+              <Box mr={1.25}>
                 <TableHeading>Company Name </TableHeading>
               </Box>
               <StartRating />
@@ -108,7 +109,7 @@ const Reports = () => {
             <MyCustomSelect names={names} func={handleChange} />
           </Box>
 
-          <Box mt="38px">
+          <Box mt={4.75}>
             <CustomTableContainer>
               <Table>
                 <TableHead>

@@ -11,8 +11,9 @@ const AgentPasswordChange = () => {
       flexDirection="column"
       position="relative"
       bgcolor={defaultTheme.palette.bgLightColor}
-      px="60px"
-      py="50px"
+      pt={12.5}
+      pb={6.25}
+      px={15.125}
     >
       <Box flex="1">
         <Typography variant="h1">Create Agent</Typography>
